@@ -1,0 +1,40 @@
+// $ (this line is just to force the auto import of quasar sass variables)
+@import "fonts";
+@import "quasar-overrides";
+
+@tailwind base;
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    // quasar sets line-height on the headings as well for material design, this clears it.
+    line-height: inherit;
+    @apply tracking-wide;
+    @extend .Airborne;
+  }
+
+  h1, h2, h3 {
+    @apply font-bold;
+  }
+
+  h1 {
+    @apply text-2xl tracking-wide mb-6;
+    @apply md:text-4xl;
+  }
+
+  h2 {
+    @apply text-xl tracking-wide mb-5;
+    @apply md:text-2xl;
+    @extend .OpenSans;
+  }
+
+  p {
+    @apply text-base leading-loose mb-4;
+  }
+}
+@tailwind components;
+@tailwind utilities;
+
+
+.playerWrap {
+  @apply w-full;
+  @apply md:max-w-screen-lg;
+}

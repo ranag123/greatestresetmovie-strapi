@@ -1,0 +1,15 @@
+// fonts
+@font-face {
+  font-family: 'Airborne';
+  src: url('./fonts/Airborne-MOdr.ttf') format('truetype');
+  font-style: normal;
+}
+
+.Airborne {
+  font-family: Airborne, sans-serif;
+}
+
+
+.OpenSans {
+  font-family: 'Open Sans', sans-serif !important;
+}

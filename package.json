@@ -1,0 +1,49 @@
+{
+  "name": "greatestresetmovie.com",
+  "version": "2.0.0",
+  "description": "From the beginning, Man has allowed his pride and the lies of Satan to convince himself he had no need for a relationship with God, his maker. God made Man in his own image and likeness, yet from Adam to Nimrod to now, Man has tried to craft the world in his own image. God reset the world with the flood, preserving Noah - the only righteous man left on Earth. Now, the elites of the world are on the brink of implementing their so called ‘Great Reset’, remaking society into the image of their own darkened minds and hardened hearts. They remain unprepared for God’s GREATEST RESET, the second coming of his Son, Jesus Christ. This documentary film is unlike any to date. No stone is left unturned to explain where we came from, how we got here, who is pulling the strings, why we are in the state we are in, what is coming for humanity, and where to find the Ark to ride out the flood. Don’t forget. Noah was a conspiracy theorist as well. And then it started to rain.",
+  "productName": "The Greatest Reset",
+  "author": "Shawn Makinson <smakinson@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "quasar dev",
+    "build": "quasar build",
+    "lint": "eslint --ext .js,.vue ./",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.0.0",
+    "@vueuse/core": "^7.5.3",
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "lodash": "^4.17.21",
+    "quasar": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.13.14",
+    "@quasar/app": "^3.0.0",
+    "dotenv": "^11.0.0",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-vue": "^7.0.0",
+    "eslint-webpack-plugin": "^2.4.0",
+    "prettier": "^2.5.1",
+    "tailwindcss": "^3.0.13"
+  },
+  "browserslist": [
+    "last 10 Chrome versions",
+    "last 10 Firefox versions",
+    "last 4 Edge versions",
+    "last 7 Safari versions",
+    "last 8 Android versions",
+    "last 8 ChromeAndroid versions",
+    "last 8 FirefoxAndroid versions",
+    "last 10 iOS versions",
+    "last 5 Opera versions"
+  ],
+  "engines": {
+    "node": ">= 12.22.1",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  }
+}

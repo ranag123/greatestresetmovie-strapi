@@ -1,0 +1,59 @@
+.q-btn:not(.BtnTopNav, .BtnProduct) {
+  font-weight: bold;
+  font-family: Airborne;
+}
+
+.q-btn--flat:not(.text-weight-bold) {
+  font-weight: normal;
+}
+
+// TODO: need this still?
+//  file a bug with quasar about this not picking up the color or label-color.
+//  Icon and input text were white. I think its related to dark mode in the body.
+//.q-select .q-select__dropdown-icon, .q-select.q-field--dark .q-field__native {
+//  color: #000;
+//}
+
+.q-input .q-field__native {
+  @apply text-center;
+}
+
+// override the error text color since our bg is dark
+//.q-field--error .q-field__bottom {
+//  color: white !important;
+//}
+
+.q-dialog__inner--minimized > div {
+  // our dialog content is wide, get rid of any max's
+  max-height: none !important;
+  max-width: none !important;
+}
+
+.q-tab__indicator.absolute-bottom {
+  // make the underlines on tabs closer to the label
+  bottom: 8px !important;
+}
+
+
+// also providing another class name here to be applied manually if desired.
+//.q-page, .pagePadding {
+//  padding-top: $flex-gutter-md;
+//  padding-bottom: 100px; // leave room for the support button so things can scroll above it.
+//  padding-left: $flex-gutter-sm;
+//  padding-right: $flex-gutter-sm;
+//
+//  @media (min-width: #{$breakpoint-sm-min}) {
+//    padding-left: $flex-gutter-md;
+//    padding-right: $flex-gutter-md;
+//  }
+//
+//  @media (min-width: #{$breakpoint-md-min}) {
+//    padding-left: $flex-gutter-lg;
+//    padding-right: $flex-gutter-lg;
+//  }
+//
+//  @media (min-width: #{$breakpoint-lg-min}) {
+//    padding-left: $flex-gutter-xl;
+//    padding-right: $flex-gutter-xl;
+//  }
+//}
