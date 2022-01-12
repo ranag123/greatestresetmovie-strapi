@@ -14,8 +14,14 @@
 //  color: #000;
 //}
 
-.q-input .q-field__native {
-  @apply text-center;
+.q-input, .q-textarea  {
+  & .q-field__native {
+    @apply text-center;
+  }
+}
+
+.body--dark .q-field--error .q-field__bottom {
+  color: #fff;
 }
 
 // override the error text color since our bg is dark
@@ -23,11 +29,11 @@
 //  color: white !important;
 //}
 
-.q-dialog__inner--minimized > div {
-  // our dialog content is wide, get rid of any max's
-  max-height: none !important;
-  max-width: none !important;
-}
+//.q-dialog__inner--minimized > div {
+//  // our dialog content is wide, get rid of any max's
+//  max-height: none !important;
+//  max-width: none !important;
+//}
 
 .q-tab__indicator.absolute-bottom {
   // make the underlines on tabs closer to the label

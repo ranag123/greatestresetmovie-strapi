@@ -1,4 +1,5 @@
 * contact
+* QInput errors messages are not white
 * privacy
 * terms
 * analytics
