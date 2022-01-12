@@ -85,7 +85,7 @@ const formState = reactive({
   email: '',
   message: ''
 })
-const confirmDialogOpen = ref(true)
+const confirmDialogOpen = ref(false)
 const formSubmitting = ref(false)
 
 // template refs

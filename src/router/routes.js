@@ -1,4 +1,3 @@
-
 const routes = [
   {
     path: '/',
@@ -6,8 +5,16 @@ const routes = [
     children: [
       { path: '', name: 'home', meta: { previewTab: 'one' }, component: () => import('pages/Index.vue') },
       { path: '/trailer2', name: 'trailer2', meta: { previewTab: 'two' }, component: () => import('pages/Index.vue') },
-      { path: '/trailer3', name: 'trailer3', meta: { previewTab: 'three' }, component: () => import('pages/Index.vue') },
+      {
+        path: '/trailer3',
+        name: 'trailer3',
+        meta: { previewTab: 'three' },
+        component: () => import('pages/Index.vue')
+      },
       { path: 'contact', name: 'contact', component: () => import('pages/PageContact.vue') },
+      // { path: 'policies', name: 'policies', component: () => import('pages/legal/Policies.vue') },
+      { path: 'privacy', name: 'privacy', component: () => import('pages/legal/Privacy.vue') },
+      { path: 'terms', name: 'terms', component: () => import('pages/legal/Terms.vue') }
     ]
   },
 

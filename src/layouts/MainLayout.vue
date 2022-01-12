@@ -168,7 +168,7 @@
       </q-scroll-area>
     </q-drawer>
 
-    <q-page-container class="!flex justify-center">
+    <q-page-container>
       <router-view/>
     </q-page-container>
 

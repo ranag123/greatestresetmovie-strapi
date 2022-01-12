@@ -1,6 +1,6 @@
 <template>
   <q-page class="PageIndex w-full">
-    <section>
+    <section class="center">
       <header class="pb-20">
         <!-- H1 is for seo -->
         <h1 style="display: none !important;">The Greatest Reset</h1>
@@ -69,7 +69,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="center text-center">
       <header>
         <h1>The Movie</h1>
       </header>
@@ -96,7 +96,7 @@
       </div>
     </section>
 
-    <section class="w-full">
+    <section>
       <!-- parallax bios start -->
       <div
         v-for="(item, index) in bios" :key="index"
@@ -127,7 +127,7 @@
       </div>
     </section>
 
-    <section class="text-center">
+    <section class="center text-center">
       <header>
         <h1 class="mb-20">Tell Your Friends About the Movie</h1>
       </header>
@@ -380,13 +380,14 @@ const bios = [
 <style lang="scss">
 // did our own scoping manually because of the v-html used on the bios.
 .PageIndex {
-  section {
-    @apply py-28;
-  }
+  //section {
+  //  @apply py-28;
+  //}
 
-  section:not(.w-full) {
-    @apply container max-w-screen-lg mx-auto text-center;
-  }
+  //section:not(.w-full) {
+  //  //@apply container max-w-screen-lg mx-auto text-center;
+  //  @apply container max-w-screen-lg mx-auto;
+  //}
 
   .trailerTab .q-tab__label {
     @apply font-bold;

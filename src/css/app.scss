@@ -1,6 +1,7 @@
 // $ (this line is just to force the auto import of quasar sass variables)
 @import "fonts";
 @import "quasar-overrides";
+@import "util";
 
 @tailwind base;
 @layer base {
@@ -26,6 +27,11 @@
     @extend .OpenSans;
   }
 
+  h3 {
+    @apply text-lg tracking-wide mb-5;
+    @apply md:text-xl;
+  }
+
   p {
     @apply text-base leading-loose mb-4;
   }
@@ -47,7 +53,11 @@ body {
   }
 }
 
-.playerWrap {
-  @apply w-full;
-  @apply md:max-w-screen-lg;
+section {
+  @apply py-28;
+}
+
+section.center {
+  @apply container max-w-screen-lg mx-auto px-8;
+  @apply md:px-12;
 }
