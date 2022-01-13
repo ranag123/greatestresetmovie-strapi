@@ -6,7 +6,7 @@
   "author": "Shawn Makinson <smakinson@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "quasar dev",
+    "dev": "swa start http://localhost:8081 --port 8080 --api ./api --run 'quasar dev -p 8081'",
     "build": "quasar build",
     "lint": "eslint --ext .js,.vue ./",
     "test": "echo \"No test specified\" && exit 0"
@@ -17,7 +17,7 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "lodash": "^4.17.21",
-    "quasar": "^2.0.0",
+    "quasar": "^2.4.9",
     "validator": "^13.7.0"
   },
   "devDependencies": {

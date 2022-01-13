@@ -378,17 +378,8 @@ const bios = [
 </script>
 
 <style lang="scss">
-// did our own scoping manually because of the v-html used on the bios.
+// did our own scoping manually because of the v-html used on the bios and it can't pick up the scoped style.
 .PageIndex {
-  //section {
-  //  @apply py-28;
-  //}
-
-  //section:not(.w-full) {
-  //  //@apply container max-w-screen-lg mx-auto text-center;
-  //  @apply container max-w-screen-lg mx-auto;
-  //}
-
   .trailerTab .q-tab__label {
     @apply font-bold;
     @apply sm:tracking-widest;
