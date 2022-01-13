@@ -78,16 +78,7 @@
 
       <div class="playerWrap py-16 text-left text-justify">
         <p>
-          From the beginning, Man has allowed his pride and the lies of Satan to convince himself he had no need for
-          a relationship with God, his maker. God made Man in his own image and likeness, yet from Adam to Nimrod to
-          now, Man has tried to craft the world in his own image. God reset the world with the flood, preserving
-          Noah - the only righteous man left on Earth. Now, the elites of the world are on the brink of implementing
-          their so called ‘Great Reset’, remaking society into the image of their own darkened minds and hardened
-          hearts. They remain unprepared for God’s GREATEST RESET, the second coming of his Son, Jesus Christ. This
-          documentary film is unlike any to date. No stone is left unturned to explain where we came from, how we
-          got here, who is pulling the strings, why we are in the state we are in, what is coming for humanity, and
-          where to find the Ark to ride out the flood. Don’t forget. Noah was a conspiracy theorist as well. And
-          then it started to rain.
+          History is the story of man&apos;s rejection of God and God&apos;s faithfulness to man in the form of a Three Act play: God creates, man rebels, God restores. Since ancient times, the pride of man and the lies of Satan have convinced man that he has no need for a relationship with his Creator. Despite being made in God's own image and likeness, from Adam to Nimrod to our day man has tried to remake the world in his own image. God reset the world with the flood and preserved the remnant of righteous Noah and his family. Now, the elites of the world are on the brink of implementing their own &ldquo;Great Reset,&rdquo; once again remaking society into the image of their own darkened minds and hardened hearts. But this latter day Tower of Babel will not stand. Even the current global load of evil is no match for God&apos;s GREATEST RESET, the second coming of his Son, Jesus Christ. This documentary film is unlike any to date. No stone is left unturned to explain where the current totalitarianism came from, why we are in the state we are in, who is pulling the strings, what is coming for humanity, and where to find the Ark to ride out the flood. Remember: Noah was a conspiracy theorist. And then it started to rain.
         </p>
       </div>
 
@@ -315,7 +306,7 @@ const bios = [
   },
   {
     name: 'Peter A. Mccullough M.D., M.P.H',
-    bio: '<p>Peter A. Mccullough, M.D., M.P.H.; Vice Chief of Internal Medicine: Baylor University Medical Center; Baylor University Medical Center, Dallas, TX; Baylor Heart and Vascular Institute, Dallas, TX; Baylor Jack and Jane Hamilton Heart and Vascular Hospital, Dallas, TX. Dr. Peter Mccullough is probably among the most published physician scientists in the world and published one of the first papers on the treatment of covid&ndash;19 in the american journal of medicine.</p>',
+    bio: '<p>Peter A. Mccullough, M.D., M.P.H.; Vice Chief of Internal Medicine: Dr. Peter Mccullough is probably among the most published physician scientists in the world and published one of the first papers on the treatment of covid&ndash;19 in the american journal of medicine.</p>',
     bg: 'mccallaugh.jpg'
   },
   {
@@ -359,9 +350,9 @@ const bios = [
     bg: 'skiba.jpg'
   },
   {
-    name: 'Miklos Lucaks',
-    bio: '<p>Miklos Lucaks is a Doctor (PhD) in Management and MSc in Innovation Management from the Alliance Manchester Business School (MBS) as well as a professor. He is a preeminent voice on Transhumanism, Artificial Intelligence and the 4th Industrial Revolution.</p>',
-    bg: 'lucaks.jpg'
+    name: 'Miklos Lukacs',
+    bio: '<p>Miklos Lukacs is a Doctor (PhD) in Management and MSc in Innovation Management from the Alliance Manchester Business School (MBS) as well as a professor. He is a preeminent voice on Transhumanism, Artificial Intelligence and the 4th Industrial Revolution.</p>',
+    bg: 'lukacs.jpg'
   },
   {
     name: 'Dr. Carrie Madej',
