@@ -105,16 +105,16 @@
 
         <!-- NOTE: These buttons hide on small screens. -->
         <div class="!flex self-stretch gt-sm">
-          <btn-top-nav type="a" :to="{ name: 'home' }" label="Home" class="gt-sm" :ripple="false"/>
+          <btn-top-nav type="a" :to="{ name: 'Home' }" label="Home" class="gt-sm" :ripple="false"/>
           <!--            <btn-top-nav type="a" :to="{ name: 'watch' }">
                         Watch<span class="gt-sm">&nbsp;Movie</span>
                       </btn-top-nav>-->
 
           <!-- Auth buttons -->
-          <!--            <btn-top-nav v-if="isAuthenticated" label="Sign Out" @click="logout" :ripple="false"/>
-                      <btn-top-nav v-else label="Sign In" type="a" :to="{ name: 'login' }" :ripple="false"/>-->
+          <btn-top-nav v-if="userStore.isAuthenticated" label="Sign Out" @click="userStore.signOut" :ripple="false"/>
+          <btn-top-nav v-else label="Sign In" type="a" :to="{ name: 'Auth' }" :ripple="false"/>
 
-          <btn-top-nav type="a" :to="{ name: 'contact' }" :ripple="false">
+          <btn-top-nav type="a" :to="{ name: 'Contact' }" :ripple="false">
             Contact<span class="gt-sm">&nbsp;Us</span>
           </btn-top-nav>
         </div>
@@ -174,9 +174,9 @@
 
     <q-footer class="!flex justify-center md:justify-end bg-dark flex-nowrap shadow-up-20" style="height: 30px">
       <!--          <q-btn no-caps no-wrap flat stretch class="OpenSans" size="sm" type="a" :to="{ name: 'policies' }" label="Policies" :ripple="false"/>-->
-      <q-btn no-caps no-wrap flat stretch class="OpenSans" size="sm" type="a" :to="{ name: 'privacy' }"
+      <q-btn no-caps no-wrap flat stretch class="OpenSans" size="sm" type="a" :to="{ name: 'Privacy' }"
              label="Privacy" :ripple="false"/>
-      <q-btn no-caps no-wrap flat stretch class="OpenSans" size="sm" type="a" :to="{ name: 'terms' }"
+      <q-btn no-caps no-wrap flat stretch class="OpenSans" size="sm" type="a" :to="{ name: 'Terms' }"
              label="Terms & Conditions" :ripple="false"/>
     </q-footer>
 
@@ -204,8 +204,11 @@ import BtnTopNav from 'components/BtnTopNav'
 // import ProductDetailDialog from 'components/store/ProductDetailDialog'
 import { computed, ref } from 'vue'
 import { useQuasar } from 'quasar'
+import { useUserStore } from 'src/stores/user'
 
 const $q = useQuasar()
+const userStore = useUserStore()
+
 const leftDrawerOpen = ref(false)
 const leftDrawerLinks = [
   {
@@ -218,7 +221,7 @@ const leftDrawerLinks = [
   },
   {
     label: 'Contact Us',
-    to: { name: 'contact' }
+    to: { name: 'Contact' }
   }
 ]
 
