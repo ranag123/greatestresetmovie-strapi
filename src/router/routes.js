@@ -28,7 +28,12 @@ const routes = [
         meta: { isPublic: true, previewTab: 'three' },
         component: () => import('pages/Index.vue')
       },
-      { path: 'contact', name: 'Contact', meta: { isPublic: true }, component: () => import('pages/PageContact.vue') },
+      {
+        path: 'contact',
+        name: 'Contact',
+        meta: { isPublic: true },
+        component: () => import('pages/PageContact.vue')
+      },
       // { path: 'policies', name: 'Policies', meta: { isPublic: true }, component: () => import('pages/legal/PagePolicies.vue') },
       {
         path: 'privacy',
@@ -36,21 +41,24 @@ const routes = [
         meta: { isPublic: true },
         component: () => import('pages/legal/PagePrivacy.vue')
       },
-      { path: 'terms', name: 'Terms', meta: { isPublic: true }, component: () => import('pages/legal/PageTerms.vue') }
-    ]
-  },
-  // auth routes
-  {
-    path: '/auth',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
       {
-        path: '',
+        path: 'terms',
+        name: 'Terms',
+        meta: { isPublic: true },
+        component: () => import('pages/legal/PageTerms.vue')
+      },
+      {
+        path: 'signin',
         name: AUTH_ROUTE_NAME,
         meta: { isPublic: true },
         component: () => import('pages/auth/PageSignIn.vue'),
       },
-      { path: 'register', name: 'AuthRegister', component: () => import('pages/auth/PageRegister.vue') },
+      {
+        path: 'register',
+        name: 'AuthRegister',
+        meta: { isPublic: true },
+        component: () => import('pages/auth/PageRegister.vue')
+      },
     ]
   },
 

@@ -8,7 +8,7 @@
           icon="menu"
           aria-label="Menu"
           @click="leftDrawerOpen = !leftDrawerOpen"
-          class="lt-md mr-2"
+          class="lt-md mx-2"
         />
 
         <btn-top-nav :dense="denseTopNavItems" to="/" :ripple="false">
@@ -104,15 +104,20 @@
         <q-space/>
 
         <!-- NOTE: These buttons hide on small screens. -->
+        <!-- REMINDER: Don't forget about the small screen left drawer nav links! -->
         <div class="!flex self-stretch gt-sm">
           <btn-top-nav type="a" :to="{ name: 'Home' }" label="Home" class="gt-sm" :ripple="false"/>
-          <!--            <btn-top-nav type="a" :to="{ name: 'watch' }">
+
+          <!--            <btn-top-nav type="a" :to="{ name: 'Watch' }">
                         Watch<span class="gt-sm">&nbsp;Movie</span>
                       </btn-top-nav>-->
 
           <!-- Auth buttons -->
           <btn-top-nav v-if="userStore.isAuthenticated" label="Sign Out" @click="userStore.signOut" :ripple="false"/>
-          <btn-top-nav v-else label="Sign In" type="a" :to="{ name: 'Auth' }" :ripple="false"/>
+          <template v-else>
+            <btn-top-nav label="Register" type="a" :to="{ name: 'AuthRegister' }" class="gt-xs" :ripple="false"/>
+            <btn-top-nav label="Sign In" type="a" :to="{ name: AUTH_ROUTE_NAME }" :ripple="false"/>
+          </template>
 
           <btn-top-nav type="a" :to="{ name: 'Contact' }" :ripple="false">
             Contact<span class="gt-sm">&nbsp;Us</span>
@@ -137,30 +142,12 @@
         </div>
 
         <q-list padding class="text-white">
-          <!-- Auth buttons -->
-          <!--          // TODO: FULL_SITE-->
-          <!--          <q-item-->
-          <!--            v-if="isAuthenticated"-->
-          <!--            v-ripple-->
-          <!--            clickable @click="logout"-->
-          <!--            active-class="text-white"-->
-          <!--          >-->
-          <!--            <q-item-section>Sign Out</q-item-section>-->
-          <!--          </q-item>-->
-          <!--          <q-item-->
-          <!--            v-else-->
-          <!--            v-ripple-->
-          <!--            clickable type="a" :to="{ name: 'login' }"-->
-          <!--            active-class="text-white"-->
-          <!--          >-->
-          <!--            <q-item-section>Sign In</q-item-section>-->
-          <!--          </q-item>-->
-
           <q-item
             v-for="item in leftDrawerLinks" :key="item.label"
             v-ripple
-            clickable :to="item.to"
+            clickable :to="item?.to"
             active-class="text-white"
+            @click="item?.click"
           >
             <q-item-section>{{ item.label }}</q-item-section>
           </q-item>
@@ -173,57 +160,65 @@
     </q-page-container>
 
     <q-footer class="!flex justify-center md:justify-end bg-dark flex-nowrap shadow-up-20" style="height: 30px">
-      <!--          <q-btn no-caps no-wrap flat stretch class="OpenSans" size="sm" type="a" :to="{ name: 'policies' }" label="Policies" :ripple="false"/>-->
+      <!--          <q-btn no-caps no-wrap flat stretch class="OpenSans" size="sm" type="a" :to="{ name: 'Policies' }" label="Policies" :ripple="false"/>-->
       <q-btn no-caps no-wrap flat stretch class="OpenSans" size="sm" type="a" :to="{ name: 'Privacy' }"
              label="Privacy" :ripple="false"/>
       <q-btn no-caps no-wrap flat stretch class="OpenSans" size="sm" type="a" :to="{ name: 'Terms' }"
              label="Terms & Conditions" :ripple="false"/>
     </q-footer>
 
-    <!-- dialogs used across the site -->
-
-    <!-- a dialog that works in conjunction with the store drawer -->
-    <!--    // TODO: FULL_SITE-->
-    <!--    <product-detail-dialog v-model="storeDetailOpen" :product="storeDetailProduct"/>-->
-
-    <!--    // TODO: FULL_SITE-->
-    <!--    <auth-dialog/>-->
-    <!-- forgot password step 1 dialog -->
-    <!--    <auth-forgot-password-dialog/>-->
-    <!-- forgot password step 2 enter new password dialog -->
-    <!--    <auth-password-reset-dialog/>-->
-
   </q-layout>
 </template>
 
 <script setup>
-// import AuthDialog from 'components/auth/AuthDialog'
-// import AuthForgotPasswordDialog from 'components/auth/AuthForgotPasswordDialog'
-// import AuthPasswordResetDialog from 'components/auth/AuthPasswordResetDialog'
 import BtnTopNav from 'components/BtnTopNav'
-// import ProductDetailDialog from 'components/store/ProductDetailDialog'
 import { computed, ref } from 'vue'
 import { useQuasar } from 'quasar'
 import { useUserStore } from 'src/stores/user'
+import { AUTH_ROUTE_NAME } from 'src/router/routes'
 
 const $q = useQuasar()
 const userStore = useUserStore()
 
 const leftDrawerOpen = ref(false)
-const leftDrawerLinks = [
-  {
-    label: 'Home',
-    to: '/'
-  },
-  {
-    label: 'Watch Movie',
-    to: { name: 'watch' }
-  },
-  {
-    label: 'Contact Us',
-    to: { name: 'Contact' }
-  }
-]
+const leftDrawerLinks = computed(() => {
+  let links = [
+    {
+      label: 'Home',
+      to: '/'
+    }
+  ]
 
+  if (userStore.isAuthenticated) {
+    links.push({
+      label: 'Sign Out',
+      click: userStore.signOut
+    })
+  } else {
+    links = links.concat([
+      {
+        label: 'Register',
+        to: { name: 'AuthRegister' }
+      },
+      {
+        label: 'Sign In',
+        to: { name: AUTH_ROUTE_NAME }
+      }
+    ])
+  }
+
+  links = links.concat([
+    // {
+    //   label: 'Watch Movie',
+    //   to: { name: 'Watch' }
+    // },
+    {
+      label: 'Contact Us',
+      to: { name: 'Contact' }
+    }
+  ])
+
+  return links
+})
 const denseTopNavItems = computed(() => $q.screen.lt.sm)
 </script>
