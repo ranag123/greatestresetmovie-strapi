@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <q-page class="PagRegister !flex justify-center items-center">
     <section class="center">
       <template v-if="userStore.isAuthenticated">
         <p>You are signed in.</p>
@@ -7,14 +7,17 @@
           <q-btn :to="{ name: 'Home' }" color="primary" label="Return to the home page"/>
         </div>
       </template>
-      <template v-else>
-        <q-card class="max-w-screen-sm mx-auto">
+      <div v-else class="max-w-screen-sm mx-auto">
+        <header>
+          <h1>Register</h1>
+        </header>
+        <q-card flat class="bg-transparent">
           <q-form ref="AuthForm" @submit.prevent="register">
             <q-card-section>
               <div class="q-gutter-y-md">
-                <h6 class="mb-6">Register</h6>
                 <q-input
                   ref="UserFullNameInput"
+                  autofocus
                   v-model="userFullName"
                   placeholder="your full name"
                   lazy-rules="ondemand"
@@ -30,7 +33,6 @@
                   lazy-rules="ondemand"
                   :rules="emailRequiredInputRules"
                 />
-                <!-- https://github.com/validatorjs/validator.js -->
                 <q-input
                   ref="UserPasswordInput"
                   v-model="userPassword"
@@ -49,6 +51,14 @@
                   :rules="[val => val === userPassword]"
                   error-message="Passwords must match to continue"
                 />
+                <q-btn
+                  type="submit"
+                  color="dark"
+                  label="Register"
+                  class="w-full"
+                  size="lg"
+                  :disable="$q.loading.isActive"
+                />
               </div>
             </q-card-section>
             <q-card-actions align="between">
@@ -58,49 +68,34 @@
                 class="OpenSans"
                 :to="{ name: AUTH_ROUTE_NAME }"
               />
-              <div class="!flex w-full sm:w-auto justify-end q-gutter-x-sm">
+              <div class="!flex justify-end q-gutter-x-sm">
                 <q-btn
-                  flat
-                  label="Cancel"
-                  :disable="$q.loading.isActive"
-                  :to="{ name: 'Home' }"
+                  flat no-caps
+                  size="md"
+                  class="OpenSans"
+                  label="Terms of Service"
+                  :to="{ name: 'Terms' }"
                 />
                 <q-btn
-                  type="submit"
-                  color="primary"
-                  label="Register"
-                  :disable="$q.loading.isActive"
+                  flat no-caps
+                  size="md"
+                  class="OpenSans"
+                  label="Privacy Policy"
+                  :to="{ name: 'Privacy' }"
                 />
               </div>
             </q-card-actions>
-            <q-card-actions align="right">
-              <q-btn
-                flat no-caps
-                size="md"
-                class="OpenSans"
-                label="Terms of Service"
-                :to="{ name: 'Terms' }"
-              />
-              <q-btn
-                flat no-caps
-                size="md"
-                class="OpenSans"
-                label="Privacy Policy"
-                :to="{ name: 'Privacy' }"
-              />
-            </q-card-actions>
           </q-form>
         </q-card>
-      </template>
+      </div>
     </section>
   </q-page>
 </template>
 
 <script setup>
-import { computed, nextTick, onBeforeUnmount, ref } from 'vue'
+import { ref } from 'vue'
 import { get, set } from '@vueuse/core'
 import { emailRequiredInputRules, requiredInputRules } from 'src/util/validation'
-import isStrongPassword from 'validator/es/lib/isStrongPassword'
 import { useUserStore } from 'src/stores/user'
 import { useQuasar } from 'quasar'
 import { AUTH_ROUTE_NAME } from 'src/router/routes'
@@ -114,10 +109,10 @@ const UserEmailInput = ref(null)
 const UserPasswordInput = ref(null)
 const UserPasswordInputAgain = ref(null)
 
-const userFullName = ref('John Smith')
-const userEmail = ref('shawn.makinson@flowingstreams.com')
-const userPassword = ref('123456')
-const userPasswordAgain = ref('123456')
+const userFullName = ref('')
+const userEmail = ref('')
+const userPassword = ref('')
+const userPasswordAgain = ref('')
 
 function resetForm () {
   set(userFullName, '')
@@ -137,13 +132,15 @@ async function formValid () {
   return f && (await f.validate())
 }
 
-async function register() {
+async function register () {
   try {
     if (await formValid()) {
       $q.loading.show()
 
       await userStore.register(get(userFullName), get(userEmail), get(userPassword))
+
       await reset()
+
       $q.notify({
         type: 'positive',
         message: 'Registration successful!'

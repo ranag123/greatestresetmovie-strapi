@@ -11,13 +11,13 @@ const ONE_DAY_IN_MILLISECONDS = 60 * 60 * 24 * 1000
  */
 export default boot(({ router }) => {
   const userStore = useUserStore()
-  const isAuthed = computed(() => userStore.isAuthenticated)
 
   // Verify the user is authed before allowing on a route, unless it is marked as publicRoute.
   router.beforeEach((to, from, next) => {
     const toIsPublic = to?.meta?.isPublic
-    const okToProceed = toIsPublic || isAuthed
-
+    const okToProceed = toIsPublic || userStore.isAuthenticated
+    console.log('toIsPublic', toIsPublic)
+    console.log('userStore.isAuthenticated', userStore.isAuthenticated)
     if (okToProceed) {
       next()
     } else {
@@ -26,7 +26,7 @@ export default boot(({ router }) => {
   })
 
   // Watch for the user's session to expire.
-  watch(isAuthed, async (authedVal) => {
+  watch(computed(() => userStore.isAuthenticated), async (authedVal) => {
     if (authedVal) {
       if (router.currentRoute.value.name === AUTH_ROUTE_NAME) {
         const redirectedFrom = router.currentRoute.value?.redirectedFrom

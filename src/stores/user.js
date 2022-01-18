@@ -47,7 +47,7 @@ export const useUserStore = defineStore('user', {
           return status >= 200 && status < 300 || status == 400
         },
       }).then(({ data }) => {
-        if (data?.error) {
+        if (data?.error && data?.name === 'ValidationError' || data?.error?.message === 'Email is already taken') {
           throw new Error(data.error.message)
         } else if (data) {
           this.authUser = data?.user
@@ -60,9 +60,23 @@ export const useUserStore = defineStore('user', {
         }
       })
     },
+    recoverPassword (email) {
+      // https://github.com/axios/axios
+      return axios.post('/api/auth/forgot-password', {
+        email,
+      }, {
+        validateStatus: function (status) {
+          return status >= 200 && status < 300 || status == 400
+        },
+      }).then(({ data }) => {
+        if (data?.error) {
+          throw new Error('Unable to request password recovery.')
+        }
+      })
+    },
     signIn (identifier, password) {
       // https://github.com/axios/axios
-      return axios.post('/api/auth', {
+      return axios.post('/api/auth/signin', {
         identifier,
         password
       }, {
@@ -70,7 +84,7 @@ export const useUserStore = defineStore('user', {
           return status >= 200 && status < 300 || status == 400
         },
       }).then(({ data }) => {
-        if (data?.error) {
+        if (data?.error && data?.name === 'ValidationError') {
           throw new Error(data.error.message)
         } else if (data) {
           this.authUser = data?.user

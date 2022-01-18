@@ -20,8 +20,11 @@
   }
 }
 
-.body--dark .q-field--error .q-field__bottom {
-  color: #fff;
+// dark: true in quasar.conf does not set the field error message color.
+.body--dark {
+  & .q-input [class~=q-field__bottom], .q-input [class~=text-negative] {
+    color: #fff;
+  }
 }
 
 // override the error text color since our bg is dark

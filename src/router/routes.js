@@ -1,3 +1,5 @@
+import * as $const from 'src/constants'
+
 export const AUTH_ROUTE_NAME = 'Auth'
 export const AUTH_AFTER_SIGN_IN_ROUTE_NAME = 'Home'
 
@@ -8,25 +10,31 @@ export const AUTH_AFTER_SIGN_IN_ROUTE_NAME = 'Home'
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    component: () => import('layouts/LayoutMain.vue'),
     children: [
       {
         path: '',
         name: 'Home',
         meta: { isPublic: true, previewTab: 'one' },
-        component: () => import('pages/Index.vue')
+        component: () => import('pages/PageIndex.vue')
       },
       {
         path: 'trailer2',
         name: 'Trailer2',
-        meta: { isPublic: true, previewTab: 'two' },
-        component: () => import('pages/Index.vue')
+        meta: { isPublic: true, previewTab: $const.ZYPE_PREVIEW_ALT1_VIDEO_ID ? 'two' : 'one' },
+        component: () => import('pages/PageIndex.vue')
       },
       {
         path: 'trailer3',
         name: 'Trailer3',
-        meta: { isPublic: true, previewTab: 'three' },
-        component: () => import('pages/Index.vue')
+        meta: { isPublic: true, previewTab: $const.ZYPE_PREVIEW_ALT2_VIDEO_ID ? 'three' : 'one' },
+        component: () => import('pages/PageIndex.vue')
+      },
+      {
+        // watch is a private route
+        path: 'watch',
+        name: 'Watch',
+        component: () => import('pages/PageWatch.vue')
       },
       {
         path: 'contact',
@@ -59,6 +67,12 @@ const routes = [
         meta: { isPublic: true },
         component: () => import('pages/auth/PageRegister.vue')
       },
+      // { // TODO: Do we need this route or does teh confirm happen on the strapi url?
+      //   path: 'confirm-email',
+      //   name: 'AuthConfirmEmail',
+      //   meta: { isPublic: true },
+      //   component: () => import('pages/auth/PageRegister.vue')
+      // },
     ]
   },
 
@@ -66,7 +80,7 @@ const routes = [
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/Error404.vue')
+    component: () => import('pages/PageError404.vue')
   }
 ]
 

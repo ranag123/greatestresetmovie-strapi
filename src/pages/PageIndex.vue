@@ -14,7 +14,7 @@
             before:h-px before:bg-white before:w-[370px] before:-ml-[185px] before:absolute before:top-0 before:left-1/2
           "
         >
-          World release 2022
+          Truth Is Coming, To Stay
         </div>
       </header>
 
@@ -67,6 +67,10 @@
                  label="Trailer 3"/>
         </q-tabs>
       </div>
+
+      <div class="grid place-items-center">
+        <btn-register/>
+      </div>
     </section>
 
     <section class="center text-center">
@@ -78,16 +82,35 @@
 
       <div class="playerWrap py-16 text-left text-justify">
         <p>
-          History is the story of man&apos;s rejection of God and God&apos;s faithfulness to man in the form of a Three Act play: God creates, man rebels, God restores. Since ancient times, the pride of man and the lies of Satan have convinced man that he has no need for a relationship with his Creator. Despite being made in God's own image and likeness, from Adam to Nimrod to our day man has tried to remake the world in his own image. God reset the world with the flood and preserved the remnant of righteous Noah and his family. Now, the elites of the world are on the brink of implementing their own &ldquo;Great Reset,&rdquo; once again remaking society into the image of their own darkened minds and hardened hearts. But this latter day Tower of Babel will not stand. Even the current global load of evil is no match for God&apos;s GREATEST RESET, the second coming of his Son, Jesus Christ. This documentary film is unlike any to date. No stone is left unturned to explain where the current totalitarianism came from, why we are in the state we are in, who is pulling the strings, what is coming for humanity, and where to find the Ark to ride out the flood. Remember: Noah was a conspiracy theorist. And then it started to rain.
+          History is the story of man&apos;s rejection of God and God&apos;s faithfulness to man in the form of a Three
+          Act play: God creates, man rebels, God restores. Since ancient times, the pride of man and the lies of Satan
+          have convinced man that he has no need for a relationship with his Creator. Despite being made in God's own
+          image and likeness, from Adam to Nimrod to our day man has tried to remake the world in his own image. God
+          reset the world with the flood and preserved the remnant of righteous Noah and his family. Now, the elites of
+          the world are on the brink of implementing their own &ldquo;Great Reset,&rdquo; once again remaking society
+          into the image of their own darkened minds and hardened hearts. But this latter day Tower of Babel will not
+          stand. Even the current global load of evil is no match for God&apos;s GREATEST RESET, the second coming of
+          his Son, Jesus Christ. This documentary film is unlike any to date. No stone is left unturned to explain where
+          the current totalitarianism came from, why we are in the state we are in, who is pulling the strings, what is
+          coming for humanity, and where to find the Ark to ride out the flood. Remember: Noah was a conspiracy
+          theorist. And then it started to rain.
         </p>
       </div>
 
-      <div class="container max-w-screen-sm px-8 pt-6 mx-auto">
-        <mailchimp-form/>
+      <div class="container max-w-screen-sm px-8 py-6 mx-auto border rounded border-white/30">
+        <form-mailchimp/>
+      </div>
+
+      <div class="grid place-items-center">
+        <btn-register/>
       </div>
     </section>
 
     <section>
+      <header class="text-center">
+        <h1>Vital Interviews Include</h1>
+      </header>
+
       <!-- parallax bios start -->
       <div
         v-for="(item, index) in bios" :key="index"
@@ -123,49 +146,111 @@
         <h1 class="mb-20">Tell Your Friends About the Movie</h1>
       </header>
 
-      <div class="!flex flex-row flex-wrap justify-center lg:justify-between w-full">
+      <social-buttons/>
 
-        <div class="social">
-          <div class="facebook" @click="util.shareViaFacebook()">
-            <div>
-              <svg width="49" height="50" viewBox="0 0 49 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M24.7441 48.4668C12.1829 48.4668 2 38.0405 2 25.179C2 12.3174 12.1829 1.89111 24.7441 1.89111C37.3053 1.89111 47.4882 12.3174 47.4882 25.179C47.4882 38.0405 37.3053 48.4668 24.7441 48.4668ZM24.7441 48.4668V20.5214C24.7441 17.9491 26.7807 15.8638 29.2929 15.8638H32.7045M16.7837 29.8365H32.7045"
-                  stroke="#767676" stroke-width="2.1858"/>
-              </svg>
-            </div>
-            <div class="whitespace-nowrap">Share to Facebook</div>
-          </div>
-        </div>
+      <q-btn
+        color="primary"
+        label="Contact Us"
+        size="xl"
+        :to="{ name: 'Contact' }"
+        class="mt-10"
+      />
 
-        <div class="social">
-          <div class="twitter" @click="util.shareViaTweet('WATCH: The Greatest Reset')">
-            <div>
-              <svg width="49" height="43" viewBox="0 0 49 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M47.418 1.35938L48.4938 1.28876C48.4654 0.855155 48.1794 0.481019 47.7684 0.339782C47.3575 0.198546 46.9019 0.317821 46.6129 0.642316L47.418 1.35938ZM45.252 11.0702C45.252 10.4747 44.7693 9.99204 44.1739 9.99204C43.5784 9.99204 43.0957 10.4747 43.0957 11.0702H45.252ZM24.7441 13.9946V15.0728H25.8222V13.9946H24.7441ZM5.24414 1.35938L6.25505 0.984644C6.10544 0.581029 5.73008 0.305089 5.30021 0.282704C4.87034 0.26032 4.46835 0.495781 4.27762 0.881672L5.24414 1.35938ZM17.9209 31.2246L18.6876 31.9825C18.9491 31.718 19.0557 31.3375 18.9699 30.9756C18.884 30.6138 18.6178 30.3218 18.2654 30.2029L17.9209 31.2246ZM2 37.4601V36.382C1.52597 36.382 1.10755 36.6916 0.968971 37.145C0.830391 37.5983 1.00417 38.0889 1.39717 38.354L2 37.4601ZM41.6919 4.5539L40.8886 5.27299L41.2779 5.7079L41.8549 5.61963L41.6919 4.5539ZM46.3422 1.42999C46.5117 4.01157 46.3615 5.6532 45.9137 6.92829C45.474 8.18038 44.7098 9.18586 43.4241 10.4304L44.9237 11.9797C46.3187 10.6295 47.3495 9.3473 47.9482 7.64279C48.5387 5.96128 48.6703 3.97742 48.4938 1.28876L46.3422 1.42999ZM45.252 13.4613V11.205H43.0957V13.4613H45.252ZM45.252 11.205V11.0702H43.0957V11.205H45.252ZM23.666 11.6973V13.9946H25.8222V11.6973H23.666ZM34.5748 0.281246C28.4659 0.281246 23.666 5.65665 23.666 11.6973H25.8222C25.8222 6.7138 29.7862 2.4375 34.5748 2.4375V0.281246ZM43.0957 13.4613C43.0957 27.9642 31.0506 40.4844 16.7837 40.4844V42.6406C32.3036 42.6406 45.252 29.0919 45.252 13.4613H43.0957ZM4.23323 1.73411C5.96413 6.40354 12.4905 15.0728 24.7441 15.0728V12.9165C13.6398 12.9165 7.7683 5.06691 6.25505 0.984644L4.23323 1.73411ZM4.27762 0.881672C0.93346 7.64781 0.375523 14.2137 2.67867 19.7809C4.98252 25.3498 10.0637 29.7128 17.5764 32.2462L18.2654 30.2029C11.1794 27.8135 6.67807 23.8077 4.67115 18.9566C2.66352 14.1037 3.06654 8.19849 6.21067 1.83708L4.27762 0.881672ZM17.1541 30.4666C15.1438 32.5004 9.4336 36.382 2 36.382V38.5383C10.1383 38.5383 16.3725 34.3246 18.6876 31.9825L17.1541 30.4666ZM42.4952 3.83481C40.5445 1.65567 37.719 0.281246 34.5748 0.281246V2.4375C37.0759 2.4375 39.3266 3.52806 40.8886 5.27299L42.4952 3.83481ZM41.8549 5.61963C44.1987 5.26108 46.4968 4.01468 48.2231 2.07643L46.6129 0.642316C45.2053 2.22273 43.3545 3.20889 41.5289 3.48817L41.8549 5.61963ZM1.39717 38.354C6.49752 41.7938 11.406 42.6406 16.7837 42.6406V40.4844C11.6769 40.4844 7.23492 39.6903 2.60283 36.5663L1.39717 38.354Z"
-                  fill="#767676"/>
-              </svg>
-            </div>
-            <div class="whitespace-nowrap">Share to Twitter</div>
-          </div>
-        </div>
-
-        <div class="social">
-          <div class="whatsapp" @click="util.shareViaWhatsapp()">
-            <div>
-              <svg width="49" height="52" viewBox="0 0 49 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M6.54817 40.7968L7.57764 41.2799L7.85843 40.6816L7.47757 40.1415L6.54817 40.7968ZM11.0963 45.6425L11.807 44.7547L11.2224 44.2869L10.5617 44.6389L11.0963 45.6425ZM2 50.4883L0.970524 50.0052C0.762485 50.4485 0.861586 50.9752 1.21651 51.3125C1.57144 51.6499 2.10248 51.7222 2.53467 51.492L2 50.4883ZM15.6465 16.5633L14.9366 15.6748C14.6665 15.8906 14.5093 16.2176 14.5093 16.5633H15.6465ZM33.8417 35.949V37.0862C34.1895 37.0862 34.5182 36.927 34.7339 36.6542L33.8417 35.949ZM17.0599 15.4338L16.35 14.5454L16.35 14.5454L17.0599 15.4338ZM20.6814 17.0718L19.5519 17.2043L19.5519 17.2043L20.6814 17.0718ZM21.1945 21.4453L22.324 21.3128L22.324 21.3128L21.1945 21.4453ZM20.5459 23.4593L19.7167 22.6811L19.7167 22.6811L20.5459 23.4593ZM34.85 34.6734L33.9578 33.9682L33.9578 33.9682L34.85 34.6734ZM33.4396 30.7148L33.6148 29.5912L33.6148 29.5912L33.4396 30.7148ZM29.2857 30.0671L29.4609 28.9435L29.2857 30.0671ZM27.3482 30.7513L28.1773 31.5296L28.1773 31.5296L27.3482 30.7513ZM0.862823 26.2561C0.862823 31.949 2.62912 37.2121 5.61877 41.4521L7.47757 40.1415C4.75554 36.281 3.13723 31.4748 3.13723 26.2561H0.862823ZM24.7441 0.886721C11.488 0.886721 0.862823 12.3139 0.862823 26.2561H3.13723C3.13723 13.4321 12.8778 3.16113 24.7441 3.16113V0.886721ZM48.6254 26.2561C48.6254 12.3139 38.0002 0.886721 24.7441 0.886721V3.16113C36.6105 3.16113 46.351 13.4321 46.351 26.2561H48.6254ZM24.7441 51.6255C38.0002 51.6255 48.6254 40.1983 48.6254 26.2561H46.351C46.351 39.0801 36.6105 49.3511 24.7441 49.3511V51.6255ZM10.3857 46.5304C14.3765 49.7246 19.3496 51.6255 24.7441 51.6255V49.3511C19.8971 49.3511 15.4191 47.6459 11.807 44.7547L10.3857 46.5304ZM2.53467 51.492L11.631 46.6462L10.5617 44.6389L1.46533 49.4846L2.53467 51.492ZM5.51869 40.3137L0.970524 50.0052L3.02948 50.9714L7.57764 41.2799L5.51869 40.3137ZM14.5093 16.5633V18.9865H16.7837V16.5633H14.5093ZM31.5673 37.0862H33.8417V34.8118H31.5673V37.0862ZM14.5093 18.9865C14.5093 28.9137 22.0796 37.0862 31.5673 37.0862V34.8118C23.4694 34.8118 16.7837 27.7955 16.7837 18.9865H14.5093ZM16.3564 17.4517L17.7698 16.3222L16.35 14.5454L14.9366 15.6748L16.3564 17.4517ZM19.5519 17.2043L20.0651 21.5778L22.324 21.3128L21.8109 16.9393L19.5519 17.2043ZM19.7167 22.6811L17.0917 25.4779L18.7501 27.0344L21.3751 24.2376L19.7167 22.6811ZM20.0651 21.5778C20.1144 21.9984 19.9757 22.4052 19.7167 22.6811L21.3751 24.2376C22.1087 23.456 22.4487 22.3762 22.324 21.3128L20.0651 21.5778ZM17.7698 16.3222C18.3853 15.8304 19.4265 16.1354 19.5519 17.2043L21.8109 16.9393C21.503 14.3158 18.5286 12.8045 16.35 14.5454L17.7698 16.3222ZM34.7339 36.6542L35.7422 35.3785L33.9578 33.9682L32.9496 35.2438L34.7339 36.6542ZM33.6148 29.5912L29.4609 28.9435L29.1105 31.1908L33.2644 31.8384L33.6148 29.5912ZM26.519 29.9731L23.9149 32.7475L25.5733 34.304L28.1773 31.5296L26.519 29.9731ZM29.4609 28.9435C28.3647 28.7726 27.2745 29.1681 26.519 29.9731L28.1773 31.5296C28.4381 31.2518 28.7847 31.14 29.1105 31.1908L29.4609 28.9435ZM35.7422 35.3785C37.3711 33.3177 36.331 30.0147 33.6148 29.5912L33.2644 31.8384C34.0753 31.9649 34.625 33.1241 33.9578 33.9682L35.7422 35.3785Z"
-                  fill="#767676"/>
-              </svg>
-            </div>
-            <div class="whitespace-nowrap">Share to WhatApp</div>
-          </div>
-        </div>
-
+      <div class="grid place-items-center">
+        <btn-register/>
       </div>
     </section>
+
+    <footer class="p-12 bg-dark">
+      <div class="max-w-md mx-auto">
+        <svg width="100%" height="100%" viewBox="0 0 186 12" version="1.1" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
+             style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+              <g transform="matrix(1.36962,0,0,1.36962,-357.566,-376.701)">
+                  <g transform="matrix(12,0,0,12,261.021,283.585)">
+                      <path
+                        d="M0.244,-0.613L0.004,-0.613L0.004,-0.7L0.583,-0.7L0.583,-0.613L0.343,-0.613L0.343,-0L0.244,-0L0.244,-0.613Z"
+                        style="fill:white;fill-rule:nonzero;"/>
+                  </g>
+                <g transform="matrix(12,0,0,12,268.065,283.585)">
+                      <path
+                        d="M0.707,-0.7L0.707,-0L0.607,-0L0.607,-0.312L0.205,-0.312L0.205,-0L0.105,-0L0.105,-0.7L0.205,-0.7L0.205,-0.399L0.607,-0.399L0.607,-0.7L0.707,-0.7Z"
+                        style="fill:white;fill-rule:nonzero;"/>
+                  </g>
+                <g transform="matrix(12,0,0,12,277.809,283.585)">
+                      <path
+                        d="M0.613,-0.087L0.613,-0L0.105,-0L0.105,-0.7L0.599,-0.7L0.599,-0.613L0.205,-0.613L0.205,-0.398L0.556,-0.398L0.556,-0.313L0.205,-0.313L0.205,-0.087L0.613,-0.087Z"
+                        style="fill:white;fill-rule:nonzero;"/>
+                  </g>
+                <g transform="matrix(12,0,0,12,289.077,283.585)">
+                      <path
+                        d="M0.556,-0.361L0.704,-0.361L0.704,-0.077C0.666,-0.048 0.622,-0.026 0.572,-0.011C0.522,0.004 0.472,0.012 0.421,0.012C0.348,0.012 0.283,-0.004 0.225,-0.035C0.167,-0.066 0.122,-0.109 0.089,-0.164C0.055,-0.219 0.039,-0.281 0.039,-0.35C0.039,-0.419 0.055,-0.482 0.089,-0.537C0.122,-0.592 0.167,-0.634 0.226,-0.666C0.285,-0.697 0.351,-0.712 0.424,-0.712C0.485,-0.712 0.541,-0.702 0.591,-0.681C0.641,-0.66 0.683,-0.63 0.717,-0.591L0.613,-0.495C0.563,-0.548 0.503,-0.574 0.432,-0.574C0.387,-0.574 0.348,-0.565 0.313,-0.546C0.278,-0.527 0.251,-0.501 0.232,-0.467C0.213,-0.433 0.203,-0.394 0.203,-0.35C0.203,-0.307 0.213,-0.268 0.232,-0.234C0.251,-0.2 0.278,-0.173 0.313,-0.155C0.347,-0.135 0.386,-0.126 0.43,-0.126C0.477,-0.126 0.519,-0.136 0.556,-0.156L0.556,-0.361Z"
+                        style="fill:white;fill-rule:nonzero;"/>
+                  </g>
+                <g transform="matrix(12,0,0,12,298.329,283.585)">
+                      <path
+                        d="M0.529,-0L0.394,-0.195L0.245,-0.195L0.245,-0L0.083,-0L0.083,-0.7L0.386,-0.7C0.448,-0.7 0.502,-0.69 0.548,-0.669C0.593,-0.648 0.628,-0.619 0.653,-0.581C0.678,-0.543 0.69,-0.498 0.69,-0.446C0.69,-0.394 0.678,-0.349 0.653,-0.312C0.627,-0.274 0.592,-0.245 0.546,-0.225L0.703,-0L0.529,-0ZM0.526,-0.446C0.526,-0.485 0.513,-0.516 0.488,-0.537C0.463,-0.558 0.426,-0.568 0.377,-0.568L0.245,-0.568L0.245,-0.324L0.377,-0.324C0.426,-0.324 0.463,-0.335 0.488,-0.356C0.513,-0.377 0.526,-0.407 0.526,-0.446Z"
+                        style="fill:white;fill-rule:nonzero;"/>
+                  </g>
+                <g transform="matrix(12,0,0,12,307.149,283.585)">
+                      <path
+                        d="M0.625,-0.13L0.625,-0L0.083,-0L0.083,-0.7L0.612,-0.7L0.612,-0.57L0.244,-0.57L0.244,-0.418L0.569,-0.418L0.569,-0.292L0.244,-0.292L0.244,-0.13L0.625,-0.13Z"
+                        style="fill:white;fill-rule:nonzero;"/>
+                  </g>
+                <g transform="matrix(12,0,0,12,315.201,283.585)">
+                      <path
+                        d="M0.544,-0.15L0.219,-0.15L0.157,-0L-0.009,-0L0.303,-0.7L0.463,-0.7L0.776,-0L0.606,-0L0.544,-0.15ZM0.493,-0.273L0.382,-0.541L0.271,-0.273L0.493,-0.273Z"
+                        style="fill:white;fill-rule:nonzero;"/>
+                  </g>
+                <g transform="matrix(12,0,0,12,323.973,283.585)">
+                      <path
+                        d="M0.228,-0.568L0.004,-0.568L0.004,-0.7L0.614,-0.7L0.614,-0.568L0.39,-0.568L0.39,-0L0.228,-0L0.228,-0.568Z"
+                        style="fill:white;fill-rule:nonzero;"/>
+                  </g>
+                <g transform="matrix(12,0,0,12,331.389,283.585)">
+                      <path
+                        d="M0.625,-0.13L0.625,-0L0.083,-0L0.083,-0.7L0.612,-0.7L0.612,-0.57L0.244,-0.57L0.244,-0.418L0.569,-0.418L0.569,-0.292L0.244,-0.292L0.244,-0.13L0.625,-0.13Z"
+                        style="fill:white;fill-rule:nonzero;"/>
+                  </g>
+                <g transform="matrix(12,0,0,12,339.441,283.585)">
+                      <path
+                        d="M0.313,0.012C0.258,0.012 0.204,0.005 0.153,-0.011C0.101,-0.025 0.059,-0.045 0.028,-0.069L0.083,-0.191C0.113,-0.169 0.149,-0.151 0.19,-0.138C0.231,-0.125 0.273,-0.118 0.314,-0.118C0.36,-0.118 0.394,-0.125 0.416,-0.139C0.438,-0.152 0.449,-0.17 0.449,-0.193C0.449,-0.21 0.443,-0.224 0.43,-0.235C0.417,-0.246 0.4,-0.254 0.38,-0.261C0.359,-0.268 0.332,-0.275 0.297,-0.283C0.244,-0.296 0.2,-0.308 0.166,-0.321C0.132,-0.334 0.103,-0.354 0.079,-0.382C0.054,-0.41 0.042,-0.447 0.042,-0.494C0.042,-0.535 0.053,-0.572 0.075,-0.605C0.097,-0.638 0.13,-0.664 0.175,-0.683C0.219,-0.702 0.273,-0.712 0.337,-0.712C0.382,-0.712 0.425,-0.707 0.468,-0.696C0.511,-0.685 0.548,-0.67 0.58,-0.65L0.53,-0.527C0.465,-0.564 0.401,-0.582 0.336,-0.582C0.291,-0.582 0.257,-0.575 0.236,-0.56C0.214,-0.545 0.203,-0.526 0.203,-0.502C0.203,-0.478 0.216,-0.46 0.241,-0.449C0.266,-0.437 0.304,-0.425 0.355,-0.414C0.408,-0.401 0.452,-0.389 0.486,-0.376C0.52,-0.363 0.549,-0.343 0.574,-0.316C0.598,-0.289 0.61,-0.252 0.61,-0.205C0.61,-0.165 0.599,-0.128 0.577,-0.096C0.554,-0.063 0.521,-0.036 0.476,-0.017C0.431,0.002 0.377,0.012 0.313,0.012Z"
+                        style="fill:white;fill-rule:nonzero;"/>
+                  </g>
+                <g transform="matrix(12,0,0,12,346.977,283.585)">
+                      <path
+                        d="M0.228,-0.568L0.004,-0.568L0.004,-0.7L0.614,-0.7L0.614,-0.568L0.39,-0.568L0.39,-0L0.228,-0L0.228,-0.568Z"
+                        style="fill:white;fill-rule:nonzero;"/>
+                  </g>
+                <g transform="matrix(12,0,0,12,357.621,283.585)">
+                      <path
+                        d="M0.573,-0L0.422,-0.215C0.403,-0.214 0.389,-0.213 0.378,-0.213L0.205,-0.213L0.205,-0L0.105,-0L0.105,-0.7L0.378,-0.7C0.469,-0.7 0.54,-0.678 0.592,-0.635C0.644,-0.592 0.67,-0.532 0.67,-0.456C0.67,-0.402 0.657,-0.356 0.63,-0.318C0.603,-0.28 0.565,-0.252 0.516,-0.235L0.682,-0L0.573,-0ZM0.375,-0.298C0.438,-0.298 0.487,-0.312 0.52,-0.339C0.553,-0.366 0.57,-0.405 0.57,-0.456C0.57,-0.507 0.553,-0.546 0.52,-0.573C0.487,-0.6 0.438,-0.613 0.375,-0.613L0.205,-0.613L0.205,-0.298L0.375,-0.298Z"
+                        style="fill:white;fill-rule:nonzero;"/>
+                  </g>
+                <g transform="matrix(12,0,0,12,366.345,283.585)">
+                      <path
+                        d="M0.613,-0.087L0.613,-0L0.105,-0L0.105,-0.7L0.599,-0.7L0.599,-0.613L0.205,-0.613L0.205,-0.398L0.556,-0.398L0.556,-0.313L0.205,-0.313L0.205,-0.087L0.613,-0.087Z"
+                        style="fill:white;fill-rule:nonzero;"/>
+                  </g>
+                <g transform="matrix(12,0,0,12,374.385,283.585)">
+                      <path
+                        d="M0.309,0.008C0.256,0.008 0.206,-0 0.157,-0.017C0.108,-0.033 0.069,-0.054 0.041,-0.08L0.078,-0.158C0.105,-0.134 0.139,-0.115 0.181,-0.1C0.222,-0.085 0.265,-0.077 0.309,-0.077C0.367,-0.077 0.41,-0.087 0.439,-0.107C0.468,-0.126 0.482,-0.152 0.482,-0.185C0.482,-0.209 0.474,-0.229 0.459,-0.244C0.443,-0.259 0.424,-0.27 0.401,-0.278C0.378,-0.286 0.345,-0.295 0.303,-0.305C0.25,-0.318 0.208,-0.33 0.176,-0.343C0.143,-0.356 0.116,-0.375 0.093,-0.402C0.07,-0.428 0.058,-0.463 0.058,-0.508C0.058,-0.545 0.068,-0.579 0.088,-0.609C0.107,-0.639 0.137,-0.663 0.177,-0.681C0.217,-0.699 0.267,-0.708 0.326,-0.708C0.367,-0.708 0.408,-0.703 0.448,-0.692C0.488,-0.681 0.522,-0.666 0.551,-0.646L0.518,-0.566C0.489,-0.585 0.457,-0.599 0.424,-0.609C0.391,-0.618 0.358,-0.623 0.326,-0.623C0.269,-0.623 0.227,-0.613 0.199,-0.592C0.17,-0.571 0.156,-0.545 0.156,-0.512C0.156,-0.488 0.164,-0.468 0.18,-0.454C0.196,-0.439 0.216,-0.427 0.24,-0.419C0.263,-0.41 0.295,-0.401 0.336,-0.392C0.389,-0.379 0.431,-0.367 0.463,-0.354C0.495,-0.341 0.523,-0.322 0.546,-0.296C0.568,-0.27 0.58,-0.235 0.58,-0.191C0.58,-0.154 0.57,-0.121 0.55,-0.091C0.53,-0.06 0.5,-0.036 0.459,-0.019C0.418,-0.001 0.368,0.008 0.309,0.008Z"
+                        style="fill:white;fill-rule:nonzero;"/>
+                  </g>
+                <g transform="matrix(12,0,0,12,381.837,283.585)">
+                      <path
+                        d="M0.613,-0.087L0.613,-0L0.105,-0L0.105,-0.7L0.599,-0.7L0.599,-0.613L0.205,-0.613L0.205,-0.398L0.556,-0.398L0.556,-0.313L0.205,-0.313L0.205,-0.087L0.613,-0.087Z"
+                        style="fill:white;fill-rule:nonzero;"/>
+                  </g>
+                <g transform="matrix(12,0,0,12,389.877,283.585)">
+                      <path
+                        d="M0.244,-0.613L0.004,-0.613L0.004,-0.7L0.583,-0.7L0.583,-0.613L0.343,-0.613L0.343,-0L0.244,-0L0.244,-0.613Z"
+                        style="fill:white;fill-rule:nonzero;"/>
+                  </g>
+              </g>
+            </svg>
+      </div>
+    </footer>
   </q-page>
 </template>
 
@@ -177,8 +262,9 @@ import { delay } from 'lodash'
 import { get, set } from '@vueuse/core'
 import { useMeta } from 'quasar'
 import MovieCreditsRow from 'components/MovieCreditsRow'
-import MailchimpForm from 'components/MailchimpForm'
-import * as util from 'src/util/util'
+import FormMailchimp from 'components/FormMailchimp'
+import SocialButtons from 'components/SocialButtons'
+import BtnRegister from 'components/BtnRegister'
 
 const route = useRoute()
 
@@ -385,99 +471,6 @@ const bios = [
     & p, & li {
       @apply text-base leading-normal;
       @apply md:text-2xl md:leading-loose;
-    }
-  }
-
-  .social {
-    @apply flex justify-center px-10 m-6;
-    width: 100%; // cant apply above w-full because of circular dependency
-    @apply sm:justify-end sm:w-auto;
-
-    & div:first-child {
-      @apply relative flex flex-col items-center justify-between text-base pb-1 cursor-pointer no-underline;
-      width: 100%; // cant apply above w-full because of circular dependency
-      height: 110px;
-      @apply sm:w-auto;
-      @apply md:text-xl;
-
-      &::after {
-        // bg color that begins as a bottom line.
-        content: '';
-        position: absolute;
-        height: 2px;
-        bottom: -10px;
-        left: -10px;
-        right: -10px;
-        z-index: 1;
-        border: 1px solid inherit;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        transition: height 0.2s ease-in-out;
-      }
-
-      &:hover {
-        &:after {
-          // animate the bg color up.
-          height: 130%;
-        }
-      }
-
-      & > div {
-        // make sure the text & icon are on top of the animation
-        position: relative;
-        z-index: 2;
-      }
-
-      &.facebook {
-
-        path {
-          stroke: #3B5998;
-        }
-
-        &:after {
-          background-color: #3B5998;
-        }
-
-        &:hover {
-          path {
-            stroke: #fff;
-          }
-        }
-      }
-
-      &.twitter {
-
-        path {
-          fill: #33CCFF;
-        }
-
-        &:after {
-          background-color: #33CCFF;
-        }
-
-        &:hover {
-          path {
-            fill: #fff;
-          }
-        }
-      }
-
-      &.whatsapp {
-
-        path {
-          fill: #25D366;
-        }
-
-        &:after {
-          background-color: #25D366;
-        }
-
-        &:hover {
-          path {
-            fill: #fff;
-          }
-        }
-      }
     }
   }
 }

@@ -1,7 +1,6 @@
 <template>
   <q-layout view="lHh lpR lFr">
     <q-header class="!flex justify-center bg-dark">
-      <!--      <layout-wrap>-->
       <q-toolbar class="pr-0 md:pl-0">
         <q-btn
           flat dense
@@ -106,20 +105,20 @@
         <!-- NOTE: These buttons hide on small screens. -->
         <!-- REMINDER: Don't forget about the small screen left drawer nav links! -->
         <div class="!flex self-stretch gt-sm">
-          <btn-top-nav type="a" :to="{ name: 'Home' }" label="Home" class="gt-sm" :ripple="false"/>
+          <btn-top-nav :to="{ name: 'Home' }" label="Home" class="gt-sm" :ripple="false"/>
 
-          <!--            <btn-top-nav type="a" :to="{ name: 'Watch' }">
-                        Watch<span class="gt-sm">&nbsp;Movie</span>
-                      </btn-top-nav>-->
+          <btn-top-nav :to="{ name: 'Watch' }">
+            Watch<span class="gt-sm">&nbsp;Movie</span>
+          </btn-top-nav>
 
           <!-- Auth buttons -->
           <btn-top-nav v-if="userStore.isAuthenticated" label="Sign Out" @click="userStore.signOut" :ripple="false"/>
           <template v-else>
-            <btn-top-nav label="Register" type="a" :to="{ name: 'AuthRegister' }" class="gt-xs" :ripple="false"/>
-            <btn-top-nav label="Sign In" type="a" :to="{ name: AUTH_ROUTE_NAME }" :ripple="false"/>
+            <btn-top-nav label="Register" :to="{ name: 'AuthRegister' }" class="gt-xs" :ripple="false"/>
+            <btn-top-nav label="Sign In" :to="{ name: AUTH_ROUTE_NAME }" :ripple="false"/>
           </template>
 
-          <btn-top-nav type="a" :to="{ name: 'Contact' }" :ripple="false">
+          <btn-top-nav :to="{ name: 'Contact' }" :ripple="false">
             Contact<span class="gt-sm">&nbsp;Us</span>
           </btn-top-nav>
         </div>
@@ -186,6 +185,10 @@ const leftDrawerLinks = computed(() => {
     {
       label: 'Home',
       to: '/'
+    },
+    {
+      label: 'Watch Movie',
+      to: { name: 'Watch' }
     }
   ]
 

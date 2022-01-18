@@ -38,7 +38,8 @@ module.exports = configure(function (ctx) {
 
       ZYPE_PREVIEW_ALT1_VIDEO_ID: process.env.ZYPE_PREVIEW_ALT1_VIDEO_ID,
       ZYPE_PREVIEW_ALT2_VIDEO_ID: process.env.ZYPE_PREVIEW_ALT2_VIDEO_ID || false,
-      ZYPE_PREVIEW_VIDEO_ID: process.env.ZYPE_PREVIEW_VIDEO_ID
+      ZYPE_PREVIEW_VIDEO_ID: process.env.ZYPE_PREVIEW_VIDEO_ID,
+      ZYPE_DOCUMENTARY_VIDEO_ID: process.env.ZYPE_DOCUMENTARY_VIDEO_ID
     }
   }
 

@@ -1,72 +1,77 @@
 <template>
   <q-page class="PageContact !flex justify-center items-center">
-    <div>
-      <header>
-        <h1>Contact Us</h1>
-      </header>
+    <section class="center">
+      <div class="max-w-screen-sm mx-auto">
+        <header>
+          <h1>Contact Us</h1>
+        </header>
 
-      <div class="full-width" style="max-width: 800px">
-        <p class="mb-12">
-          Please complete the contact form below and a team member will get back to you.
-        </p>
+        <q-card flat class="bg-transparent">
+          <q-form
+            ref="ContactForm"
+            :action="postTo" method="POST"
+            @submit.prevent.stop="confirmConsent"
+          >
+            <q-card-section>
+              <p class="mb-12">
+                Please complete the contact form below and a team member will get back to you.
+              </p>
 
-        <q-form
-          ref="contactForm"
-          :action="postTo" method="POST"
-          @submit.prevent.stop="confirmConsent"
-          class="q-gutter-y-md"
-        >
-          <q-input
-            autofocus dark
-            v-model.trim="formState.fullName"
-            placeholder="name"
-            aria-label="name"
-            lazy-rules='ondemand'
-            :rules="requiredInputRules"
-          />
-          <q-input
-            type="email"
-            v-model.trim="formState.email"
-            placeholder="email address"
-            aria-label="email address"
-            lazy-rules='ondemand'
-            :rules="emailRequiredInputRules"
-          />
-          <q-input
-            type="textarea"
-            v-model.trim="formState.message"
-            placeholder="message or question"
-            aria-label="message or question"
-            rows="5"
-            lazy-rules='ondemand'
-            :rules="requiredInputRules"
-          />
-          <input type="hidden" name="hpf" :value="formState.honeypot"/>
-          <div class="flex justify-end">
-            <q-btn
-              type="submit"
-              color="dark"
-              label="Submit"
-              size="lg"
-              class="w-full"
-            />
-          </div>
-        </q-form>
+              <div class="q-gutter-y-md">
+                <q-input
+                  autofocus dark
+                  v-model.trim="formState.fullName"
+                  placeholder="name"
+                  aria-label="name"
+                  lazy-rules="ondemand"
+                  :rules="requiredInputRules"
+                />
+                <q-input
+                  type="email"
+                  v-model.trim="formState.email"
+                  placeholder="email address"
+                  aria-label="email address"
+                  lazy-rules="ondemand"
+                  :rules="emailRequiredInputRules"
+                />
+                <q-input
+                  type="textarea"
+                  v-model.trim="formState.message"
+                  placeholder="message or question"
+                  aria-label="message or question"
+                  rows="5"
+                  lazy-rules="ondemand"
+                  :rules="requiredInputRules"
+                />
+                <input type="hidden" name="hpf" :value="formState.honeypot"/>
+                <div class="flex justify-end">
+                  <q-btn
+                    type="submit"
+                    color="dark"
+                    label="Submit"
+                    size="lg"
+                    class="w-full"
+                  />
+                </div>
+              </div>
+            </q-card-section>
+          </q-form>
+        </q-card>
+
+        <q-inner-loading :showing="formSubmitting"/>
+
+        <!-- This is the confirmation alert -->
+        <dialog-confirm-form
+          v-model="confirmDialogOpen"
+          @ok="submitForm"
+        />
       </div>
-
-      <q-inner-loading :showing="formSubmitting"/>
-
-      <!-- This is the confirmation alert -->
-      <form-confirm-dialog
-        v-model="confirmDialogOpen"
-        @ok="submitForm"
-      />
-    </div>
+    </section>
   </q-page>
 </template>
 
 <script setup>
-import FormConfirmDialog from 'components/FormConfirmDialog'
+import DialogConfirmForm from 'components/DialogConfirmForm'
 import { onMounted, reactive, ref } from 'vue'
 import * as $const from 'src/constants'
 import { get, set } from '@vueuse/core'
@@ -89,7 +94,7 @@ const confirmDialogOpen = ref(false)
 const formSubmitting = ref(false)
 
 // template refs
-const contactForm = ref(null)
+const ContactForm = ref(null)
 
 onMounted(() => {
   // TODO: attempt to prefill fields we can from the authed user.
@@ -97,7 +102,7 @@ onMounted(() => {
 
 async function confirmConsent () {
   if (!get(formSubmitting)) {
-    const formValid = await get(contactForm).validate()
+    const formValid = await get(ContactForm).validate()
 
     if (formValid) {
       set(confirmDialogOpen, true)
@@ -116,8 +121,8 @@ function resetForm () {
   formState.email = ''
   formState.message = ''
 
-  if (get(contactForm)) {
-    get(contactForm).resetValidation()
+  if (get(ContactForm)) {
+    get(ContactForm).resetValidation()
   }
 }
 
@@ -163,26 +168,3 @@ async function submitForm () {
   }
 }
 </script>
-
-<!--<style lang="scss" scoped>-->
-<!--.PageContact {-->
-<!--  // original-->
-<!--  //background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0) 100%), url('~assets/home/bg-home.jpg') no-repeat;-->
-<!--  //background-attachment: fixed, fixed;-->
-<!--  //background-size: auto, cover;-->
-<!--  //background-position: top left, top center;-->
-<!--  // solution for iOS based on this:-->
-<!--  // https://stackoverflow.com/questions/24154666/background-size-cover-not-working-on-ios-->
-<!--  &::after{-->
-<!--    content: '';-->
-<!--    position: fixed; /* stretch a fixed position to the whole screen */-->
-<!--    top: 0;-->
-<!--    height: 100vh; /* fix for mobile browser address bar appearing disappearing */-->
-<!--    left: 0;-->
-<!--    right: 0;-->
-<!--    z-index: -1; /* needed to keep in the background */-->
-<!--    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 35%, rgba(0,0,0,0) 100%), url('~assets/home/bg-home.jpg') center center no-repeat;-->
-<!--    background-size: auto, cover;-->
-<!--  }-->
-<!--}-->
-<!--</style>-->

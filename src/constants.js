@@ -8,7 +8,8 @@ export const ZYPE_PLAYER_KEY = process.env.ZYPE_PLAYER_KEY
 export const ZYPE_PREVIEW_VIDEO_ID = process.env.ZYPE_PREVIEW_VIDEO_ID
 export const ZYPE_PREVIEW_ALT1_VIDEO_ID = process.env.ZYPE_PREVIEW_ALT1_VIDEO_ID
 export const ZYPE_PREVIEW_ALT2_VIDEO_ID = process.env.ZYPE_PREVIEW_ALT2_VIDEO_ID
-console.log(ZYPE_PREVIEW_ALT2_VIDEO_ID)
+export const ZYPE_DOCUMENTARY_VIDEO_ID = process.env.ZYPE_DOCUMENTARY_VIDEO_ID
+
 // export const VIDEO_PRODUCT_TYPES = {
 //   PLAYLIST: 'playlist',
 //   VIDEO: 'video'

@@ -6,8 +6,11 @@
     class="validate"
   >
     <div class="mb-4" id="mc_embed_signup_scroll">
-      <label class="block py-6 font-bold tracking-wide" for="mce-EMAIL">
-        Signup to stay up to date with the latest news regarding The Greatest Reset
+      <h3 class="text-3xl">Stay Connected</h3>
+
+      <label class="block py-6 tracking-wide" for="mce-EMAIL">
+        <span class="block pb-2 font-bold">Signup to stay up to date with the latest news regarding The Greatest Reset.</span>
+        <span class="block">This is an important step to stay informed as social media accounts are frequently shadow banned.</span>
       </label>
 
       <q-input
