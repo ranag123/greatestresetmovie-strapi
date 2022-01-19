@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
-import axios from 'axios'
 import lscache from 'lscache'
+import { apiEndpoint } from 'src/util/endpoints'
 
 const AUTH_CACHE_KEY = 'auth'
 const SEVEN_DAYS_IN_MINUTES = 60 * 24 * 7
@@ -26,10 +26,10 @@ export const useUserStore = defineStore('user', {
 
   actions: {
     me () {
-      return axios.get('/api/me').then(({ data }) => {
+      return apiEndpoint.get('/api/me').then(({ data }) => {
         if (data) {
-          this.authUser = data?.user
-          this.jwt = data?.jwt
+          this.authUser = data
+          
           // save the info locally but expire it when the zype token will expire.
           // the zype expires_in is seconds, so convert to minutes
           this.persistAuthState(this.zype.expires_in / 60)
@@ -38,7 +38,7 @@ export const useUserStore = defineStore('user', {
     },
     register (username, email, password) {
       // https://github.com/axios/axios
-      return axios.post('/api/auth/register', {
+      return apiEndpoint.post('/api/auth/register', {
         username,
         email,
         password
@@ -62,7 +62,7 @@ export const useUserStore = defineStore('user', {
     },
     recoverPassword (email) {
       // https://github.com/axios/axios
-      return axios.post('/api/auth/forgot-password', {
+      return apiEndpoint.post('/api/auth/forgot-password', {
         email,
       }, {
         validateStatus: function (status) {
@@ -76,7 +76,7 @@ export const useUserStore = defineStore('user', {
     },
     signIn (identifier, password) {
       // https://github.com/axios/axios
-      return axios.post('/api/auth/signin', {
+      return apiEndpoint.post('/api/auth/signin', {
         identifier,
         password
       }, {
