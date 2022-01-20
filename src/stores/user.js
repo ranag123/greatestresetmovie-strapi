@@ -29,7 +29,7 @@ export const useUserStore = defineStore('user', {
       return apiEndpoint.get('/api/me').then(({ data }) => {
         if (data) {
           this.authUser = data
-          
+
           // save the info locally but expire it when the zype token will expire.
           // the zype expires_in is seconds, so convert to minutes
           this.persistAuthState(this.zype.expires_in / 60)
