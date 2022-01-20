@@ -72,22 +72,24 @@
 
 <script setup>
 import DialogConfirmForm from 'components/DialogConfirmForm'
-import { onMounted, reactive, ref } from 'vue'
+import { reactive, ref } from 'vue'
 import * as $const from 'src/constants'
 import { get, set } from '@vueuse/core'
 import { useQuasar } from 'quasar'
 import axios from 'axios'
 import * as util from 'src/util/util'
 import { emailRequiredInputRules, requiredInputRules } from 'src/util/validation'
+import { useUserStore } from 'src/stores/user'
 
 const $q = useQuasar()
+const userStore = useUserStore()
 
 // GreatestReset Movie Contact form in usebasin
 const postTo = 'https://usebasin.com/f/34caf77b7792'
 const formState = reactive({
   honeypot: '',
-  fullName: '',
-  email: '',
+  fullName: userStore.authUser?.username || '',
+  email: userStore.authUser?.email || '',
   message: ''
 })
 const confirmDialogOpen = ref(false)
@@ -95,10 +97,6 @@ const formSubmitting = ref(false)
 
 // template refs
 const ContactForm = ref(null)
-
-onMounted(() => {
-  // TODO: attempt to prefill fields we can from the authed user.
-})
 
 async function confirmConsent () {
   if (!get(formSubmitting)) {
