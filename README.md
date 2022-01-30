@@ -1,5 +1,10 @@
 # The Greatest Reset (greatestresetmovie.com)
 
+This is the greatestresetmovie.com website converted to Quasar 2 & hooked to a customized Strapi admin
+for end user authentication. The end users in Strapi have a corresponding zype consumer for use with
+registration required or money transactions required on zype content. This allows an access_token
+from zype to be retrieved when signing in to Strapi.
+
 ## Install the dependencies
 ```bash
 yarn
@@ -19,6 +24,3 @@ yarn run lint
 ```bash
 quasar build
 ```
-
-### Customize the configuration
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
