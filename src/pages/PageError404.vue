@@ -1,22 +1,16 @@
 <template>
-  <!-- TODO: design the error page -->
-  <div class="fullscreen bg-blue text-white text-center pa-8 flex flex-center">
+  <div class="fullscreen text-white text-center pa-8 !flex items-center justify-center">
     <div>
-      <div style="font-size: 30vh">
-        404
-      </div>
-
       <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
+        Page not found
       </div>
 
       <q-btn
         class="mt-12"
-        color="white"
-        text-color="blue"
+        color="primary"
         unelevated
         to="/"
-        label="Go Home"
+        label="Ok"
         no-caps
       />
     </div>

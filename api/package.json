@@ -7,16 +7,14 @@
     "test": "echo \"No tests yet...\""
   },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^0.25.0",
     "azure-function-log-intercept": "^1.0.11",
     "bad-words": "^3.0.4",
-    "cookie": "^0.4.1",
     "dayjs": "^1.10.7",
     "http-errors": "^2.0.0",
     "lodash": "^4.17.21",
     "sanitize-html": "^2.6.1",
-    "simple-encryptor": "^4.0.0",
-    "stripe": "^8.196.0"
+    "stripe": "^8.201.0"
   },
   "devDependencies": {}
 }

@@ -5,6 +5,14 @@ import { apiEndpoint } from 'src/util/endpoints'
 const AUTH_CACHE_KEY = 'auth'
 const SEVEN_DAYS_IN_MINUTES = 60 * 24 * 7
 
+function getValidationError (error) {
+  if (error?.details?.errors instanceof Array) {
+    // grab the first one
+    return error.details.errors?.[0]
+  }
+  return error
+}
+
 export const useUserStore = defineStore('user', {
   state: () => {
     lscache.flushExpired()
@@ -47,8 +55,11 @@ export const useUserStore = defineStore('user', {
           return status >= 200 && status < 300 || status == 400
         },
       }).then(({ data }) => {
-        if (data?.error && data?.name === 'ValidationError' || data?.error?.message === 'Email is already taken') {
-          throw new Error(data.error.message)
+        if (data?.error) {
+          if (data.error?.name === 'ValidationError' || data?.error?.message === 'Email is already taken') {
+            const err = getValidationError(data.error)
+            if (err) throw err
+          }
         } else if (data) {
           this.authUser = data?.user
           this.jwt = data?.jwt
@@ -56,7 +67,7 @@ export const useUserStore = defineStore('user', {
           // the zype expires_in is seconds, so convert to minutes
           this.persistAuthState(this.zype.expires_in / 60)
         } else {
-          throw new Error('An error occurred.')
+          throw new Error() // let the UI set the message
         }
       })
     },
@@ -70,7 +81,50 @@ export const useUserStore = defineStore('user', {
         },
       }).then(({ data }) => {
         if (data?.error) {
+          if (data.error?.name === 'ValidationError') {
+            const err = getValidationError(data.error)
+            if (err) throw err
+          }
           throw new Error('Unable to request password recovery.')
+        }
+      })
+    },
+    resetPassword (code, password, passwordConfirmation) {
+      // This is step 2 of the recover password process after the user received an email with a link to reset.
+      // https://github.com/axios/axios
+      return apiEndpoint.post('/api/auth/reset-password', {
+        code,
+        password,
+        passwordConfirmation
+      }, {
+        validateStatus: function (status) {
+          return status >= 200 && status < 300 || status == 400
+        },
+      }).then(({ data }) => {
+        if (data?.error) {
+          if (data.error?.name === 'ValidationError') {
+            const err = getValidationError(data.error)
+            if (err) throw err
+          }
+          throw new Error('Unable to reset your password.')
+        }
+      })
+    },
+    sendEmailConfirmation (email) {
+      // https://github.com/axios/axios
+      return apiEndpoint.post('/api/auth/send-email-confirmation', {
+        email,
+      }, {
+        validateStatus: function (status) {
+          return status >= 200 && status < 300 || status == 400
+        },
+      }).then(({ data }) => {
+        if (data?.error) {
+          if (data.error?.name === 'ValidationError') {
+            const err = getValidationError(data.error)
+            if (err) throw err
+          }
+          throw new Error('Unable to send the confirmation email.')
         }
       })
     },
@@ -84,8 +138,11 @@ export const useUserStore = defineStore('user', {
           return status >= 200 && status < 300 || status == 400
         },
       }).then(({ data }) => {
-        if (data?.error && data?.name === 'ValidationError') {
-          throw new Error(data.error.message)
+        if (data?.error) {
+          if (data.error?.name === 'ValidationError' || data?.error?.message === 'Your account email is not confirmed') {
+            const err = getValidationError(data.error)
+            if (err) throw err
+          }
         } else if (data) {
           this.authUser = data?.user
           this.jwt = data?.jwt
@@ -93,7 +150,7 @@ export const useUserStore = defineStore('user', {
           // the zype expires_in is seconds, so convert to minutes
           this.persistAuthState(this.zype.expires_in / 60)
         } else {
-          throw new Error('An error occurred.')
+          throw new Error() // let the UI set the message
         }
       })
     },

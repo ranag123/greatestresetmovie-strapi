@@ -73,15 +73,15 @@
                   flat no-caps
                   size="md"
                   class="OpenSans"
-                  label="Terms of Service"
-                  :to="{ name: 'Terms' }"
+                  label="Privacy Policy"
+                  :to="{ name: 'Privacy' }"
                 />
                 <q-btn
                   flat no-caps
                   size="md"
                   class="OpenSans"
-                  label="Privacy Policy"
-                  :to="{ name: 'Privacy' }"
+                  label="Terms & Conditions"
+                  :to="{ name: 'Terms' }"
                 />
               </div>
             </q-card-actions>

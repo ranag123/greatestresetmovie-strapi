@@ -16,8 +16,7 @@ export default boot(({ router }) => {
   router.beforeEach((to, from, next) => {
     const toIsPublic = to?.meta?.isPublic
     const okToProceed = toIsPublic || userStore.isAuthenticated
-    console.log('toIsPublic', toIsPublic)
-    console.log('userStore.isAuthenticated', userStore.isAuthenticated)
+
     if (okToProceed) {
       next()
     } else {

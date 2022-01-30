@@ -45,7 +45,7 @@
               </div>
             </q-card-section>
             <q-card-actions align="between">
-              <div>
+              <div class="q-gutter-x-sm">
                 <q-btn
                   flat no-caps
                   label="Need to register?"
@@ -56,7 +56,7 @@
                   flat no-caps
                   label="Trouble signing in?"
                   class="OpenSans"
-                  @click="showRecoverPassword = !showRecoverPassword"
+                  @click="showRecoverAccount = !showRecoverAccount"
                 />
               </div>
               <div class="!flex justify-end q-gutter-x-sm">
@@ -64,50 +64,57 @@
                   flat no-caps
                   size="md"
                   class="OpenSans"
-                  label="Terms of Service"
-                  :to="{ name: 'Terms' }"
+                  label="Privacy Policy"
+                  :to="{ name: 'Privacy' }"
                 />
                 <q-btn
                   flat no-caps
                   size="md"
                   class="OpenSans"
-                  label="Privacy Policy"
-                  :to="{ name: 'Privacy' }"
+                  label="Terms & Conditions"
+                  :to="{ name: 'Terms' }"
                 />
               </div>
             </q-card-actions>
           </q-form>
           <q-slide-transition>
             <q-form
-              v-if="showRecoverPassword"
+              v-if="showRecoverAccount"
               ref="RecoverForm"
-              @submit.prevent="recoverPassword"
               class="border-t mt-3 border-white/20"
             >
               <q-card-section>
                 <div class="q-gutter-y-md">
-                  <h6 class="mb-6">Recover Password</h6>
+                  <h6 class="mb-6">Recover Account</h6>
                   <q-input
-                    ref="RecoverPasswordEmailInput"
-                    v-model="recoverPasswordEmail"
+                    ref="RecoverAccountEmailInput"
+                    v-model="recoverAccountEmail"
                     type="email"
                     autocomplete="email"
                     placeholder="you@somewhere.com"
                     lazy-rules="ondemand"
                     :rules="emailRequiredInputRules"
                   />
+                  <div class="flex md:flex-nowrap">
+                    <q-btn
+                      color="dark"
+                      label="Recover Password"
+                      :disable="$q.loading.isActive"
+                      size="lg"
+                      class="mb-3 md:mb-0"
+                      @click="recoverAccount('password')"
+                    />
+                    <q-space/>
+                    <q-btn
+                      color="dark"
+                      label="Resend Confirmation Email"
+                      :disable="$q.loading.isActive"
+                      size="lg"
+                      @click="recoverAccount('confirm')"
+                    />
+                  </div>
                 </div>
               </q-card-section>
-              <q-card-actions align="right">
-                <q-btn
-                  type="submit"
-                  color="dark"
-                  label="Recover Password"
-                  :disable="$q.loading.isActive"
-                  class="w-full"
-                  size="lg"
-                />
-              </q-card-actions>
             </q-form>
           </q-slide-transition>
         </q-card>
@@ -130,11 +137,12 @@ const userStore = useUserStore()
 const AuthForm = ref(null)
 const UserEmailInput = ref(null)
 const UserPasswordInput = ref(null)
-const RecoverPasswordEmailInput = ref(null)
+const RecoverAccountEmailInput = ref(null)
 
-// TODO: remove these hardcoded refs
-const userEmail = ref('shawn.makinson@flowingstreams.com')
-const userPassword = ref('123456')
+// const userEmail = ref('shawn.makinson@flowingstreams.com') // for dev
+// const userPassword = ref('123456') // for dev
+const userEmail = ref('')
+const userPassword = ref('')
 
 function resetForm () {
   set(userEmail, '')
@@ -161,7 +169,7 @@ async function signIn () {
       await reset()
     }
   } catch (err) {
-    let message = 'An error occurred. Please check your input & try again.'
+    let message = 'An error occurred. Please check your input & try again or confirm your account.'
 
     if (err?.message) {
       message = err.message
@@ -181,23 +189,30 @@ async function signIn () {
   }
 }
 
-const recoverPasswordEmail = ref('shawn.makinson@flowingstreams.com')
-const showRecoverPassword = ref(false)
+// const recoverAccountEmail = ref('shawn.makinson@flowingstreams.com') // for dev
+const recoverAccountEmail = ref('')
+const showRecoverAccount = ref(false)
 
 async function recoverFormValid () {
   const f = get(AuthForm)
   return f && (await f.validate())
 }
 
-async function recoverPassword () {
+async function recoverAccount (action) {
   try {
     if (await recoverFormValid()) {
       $q.loading.show()
 
-      await userStore.recoverPassword(get(recoverPasswordEmail))
+      if (action === 'password') {
+        await userStore.recoverPassword(get(recoverAccountEmail))
+      } else if (action === 'confirm') {
+        await userStore.sendEmailConfirmation(get(recoverAccountEmail))
+      } else {
+        throw new Error()
+      }
 
-      set(recoverPasswordEmail, '')
-      get(RecoverPasswordEmailInput)?.resetValidation()
+      set(recoverAccountEmail, '')
+      get(RecoverAccountEmailInput)?.resetValidation()
 
       $q.notify({
         type: 'positive',
@@ -219,7 +234,7 @@ async function recoverPassword () {
       ok: { color: 'warning' }
     })
 
-    get(RecoverPasswordEmailInput)?.select()
+    get(RecoverAccountEmailInput)?.select()
   } finally {
     $q.loading.hide()
   }

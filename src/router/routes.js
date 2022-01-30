@@ -67,12 +67,13 @@ const routes = [
         meta: { isPublic: true },
         component: () => import('pages/auth/PageRegister.vue')
       },
-      // { // TODO: Do we need this route or does teh confirm happen on the strapi url?
-      //   path: 'confirm-email',
-      //   name: 'AuthConfirmEmail',
-      //   meta: { isPublic: true },
-      //   component: () => import('pages/auth/PageRegister.vue')
-      // },
+      // NOTE: the confirm account email url is a direct api call that is proxied in api/proxies.json
+      {
+        path: 'reset-password',
+        name: 'AuthResetPassword',
+        meta: { isPublic: true },
+        component: () => import('pages/auth/PageResetPassword.vue')
+      },
     ]
   },
 
@@ -80,6 +81,7 @@ const routes = [
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
+    meta: { isPublic: true },
     component: () => import('pages/PageError404.vue')
   }
 ]
