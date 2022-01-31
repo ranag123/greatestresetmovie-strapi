@@ -78,6 +78,12 @@ module.exports = configure(function (ctx) {
       'material-icons' // optional, you are not bound to it
     ],
 
+    // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-htmlVariables
+    htmlVariables: {
+      faviconVersion: '9v1p9a5K3m0s2ca3',
+      siteDomain: DOMAIN
+    },
+
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
       env: envVars,
