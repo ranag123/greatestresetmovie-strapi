@@ -23,11 +23,6 @@ module.exports = configure(function (ctx) {
       // DO NOT INCLUDE SENSITIVE DATA IN THE ENV VARS HERE!
       // ONLY ADD ENV VARS THAT NEED TO BE INJECTED INTO THE QUASAR APP HERE!
 
-      // AUTH_PATH_LOGIN: process.env.AUTH_PATH_LOGIN,
-      // AUTH_PATH_PROXY: process.env.AUTH_PATH_PROXY,
-      // AUTH_PATH_SIGNUP: process.env.AUTH_PATH_SIGNUP,
-      // AUTH_PASSWORD_MIN_LEN: process.env.AUTH_PASSWORD_MIN_LEN,
-
       MAILCHIMP_LIST_ID: process.env.MAILCHIMP_LIST_ID,
 
       STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY,
