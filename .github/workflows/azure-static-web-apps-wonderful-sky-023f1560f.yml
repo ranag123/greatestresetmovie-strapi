@@ -27,10 +27,27 @@ jobs:
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          app_build_command: "yarn run build"
           app_location: "/" # App source code path
-          api_location: "" # Api source code path - optional
-          output_location: "" # Built app content directory - optional
+          api_location: "/api" # Api source code path - optional
+          output_location: "/dist/spa" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
+        env:
+          #### DO NOT PUT SENSITIVE/SECRET VALUES IN THIS FILE!
+          #### Everything in this section will be available in the browser.
+          #### https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/create-static-web-app#configure-client-environment-variables
+          MAILCHIMP_LIST_ID: "6d6a7cc687"
+          # zype doesn't support using the stripe test key, so we always use the live key.
+          STRIPE_PUBLIC_KEY: "pk_live_51HFPhFGzQSpdjABYMsGrZCIMxs70FBdqPJS4bpW1WIxloSXs04HrboRgyeZXbLzskBpJXUPZ6YNw3FZHT5CAJnZY00NOrRndi9"
+          ZYPE_API_BASE_URL: "/api/media"
+          ZYPE_PLAYER_BASE_URL: "https://player.zype.com"
+          ZYPE_PLAYER_KEY: "c4gu9rqVnqVsdLRMG2dNhsWVzS9lvG20XO-cNOymPln-KREp5IGCnGohtA3kfGA8"
+          ZYPE_PREVIEW_ALT1_VIDEO_ID: "6108384d7aaed90001b3aa85"
+          # ZYPE_PREVIEW_ALT2_VIDEO_ID: "6116878e6a20270001094748"
+          ZYPE_PREVIEW_VIDEO_ID: "61dd9a5946da5f0001a388a9"
+          ZYPE_PRODUCT_SL_PURCHASE_ALL_PLAYLIST_ID: "5f4feb960210ef0001e0115c"
+          ZYPE_PRODUCT_SL_RENT_ALL_PLAYLIST_ID: "5f4feb84a31592000179e583"
+          ZYPE_DOCUMENTARY_VIDEO_ID: "61dd9a5946da5f0001a388a9"
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
