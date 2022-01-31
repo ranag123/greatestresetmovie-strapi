@@ -137,6 +137,7 @@ const userStore = useUserStore()
 const AuthForm = ref(null)
 const UserEmailInput = ref(null)
 const UserPasswordInput = ref(null)
+const RecoverForm = ref(null)
 const RecoverAccountEmailInput = ref(null)
 
 // const userEmail = ref('shawn.makinson@flowingstreams.com') // for dev
@@ -194,7 +195,7 @@ const recoverAccountEmail = ref('')
 const showRecoverAccount = ref(false)
 
 async function recoverFormValid () {
-  const f = get(AuthForm)
+  const f = get(RecoverForm)
   return f && (await f.validate())
 }
 
