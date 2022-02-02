@@ -69,7 +69,7 @@ import * as util from 'src/util/util'
       left: -10px;
       right: -10px;
       z-index: 1;
-      border: 1px solid inherit;
+      //border: 1px solid transparent;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       transition: height 0.2s ease-in-out;
