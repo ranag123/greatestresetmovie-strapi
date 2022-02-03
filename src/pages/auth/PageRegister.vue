@@ -141,9 +141,12 @@ async function register () {
 
       await reset()
 
-      $q.notify({
-        type: 'positive',
-        message: 'Registration successful!'
+      $q.dialog({
+        title: 'Registration successful!',
+        message: 'Please check your email to confirm your account.',
+        transitionShow: 'slide-up',
+        transitionHide: 'slide-down',
+        ok: { color: 'positive' }
       })
     }
   } catch (err) {
