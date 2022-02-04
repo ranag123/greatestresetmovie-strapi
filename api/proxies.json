@@ -2,7 +2,7 @@
   "$schema": "http://json.schemastore.org/proxies",
   "proxies": {
     "ourStrapiAuthSignInApi": {
-      "debug": false,
+      "debug": true,
       "matchCondition": {
         "methods": [
           "POST"
@@ -12,7 +12,7 @@
       "backendUri": "%STRAPI_API_BASE_URL%/api/auth/local"
     },
     "ourStrapiAuthRegisterInApi": {
-      "debug": false,
+      "debug": true,
       "matchCondition": {
         "methods": [
           "POST"
@@ -22,7 +22,7 @@
       "backendUri": "%STRAPI_API_BASE_URL%/api/auth/local/register"
     },
     "ourStrapiAuthRemainingApi": {
-      "debug": false,
+      "debug": true,
       "matchCondition": {
         "methods": [
           "GET",
@@ -33,7 +33,7 @@
       "backendUri": "%STRAPI_API_BASE_URL%/api/auth/{restOfPath}"
     },
     "ourStrapiAuthGetMeApi": {
-      "debug": false,
+      "debug": true,
       "matchCondition": {
         "methods": [
           "GET"
