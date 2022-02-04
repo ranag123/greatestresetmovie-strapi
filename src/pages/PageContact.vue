@@ -88,7 +88,7 @@ const userStore = useUserStore()
 const postTo = 'https://usebasin.com/f/34caf77b7792'
 const formState = reactive({
   honeypot: '',
-  fullName: userStore.authUser?.username || '',
+  fullName: userStore.authUser?.fullName || '',
   email: userStore.authUser?.email || '',
   message: ''
 })
