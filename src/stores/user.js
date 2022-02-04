@@ -44,12 +44,13 @@ export const useUserStore = defineStore('user', {
         }
       })
     },
-    register (username, email, password) {
+    register (fullName, email, password) {
       // https://github.com/axios/axios
       return apiEndpoint.post('/api/auth/register', {
-        username,
+        username: email, // this has to be unique, so use email
         email,
-        password
+        password,
+        fullName // this is a custom field we added to the User schema & the registration callback.
       }, {
         validateStatus: function (status) {
           return status >= 200 && status < 300 || status == 400

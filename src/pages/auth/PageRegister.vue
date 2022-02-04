@@ -99,9 +99,11 @@ import { emailRequiredInputRules, requiredInputRules } from 'src/util/validation
 import { useUserStore } from 'src/stores/user'
 import { useQuasar } from 'quasar'
 import { AUTH_ROUTE_NAME } from 'src/router/routes'
+import { useRouter } from 'vue-router'
 
 const $q = useQuasar()
 const userStore = useUserStore()
+const router = useRouter()
 
 // template refs.
 const AuthForm = ref(null)
@@ -147,6 +149,8 @@ async function register () {
         transitionShow: 'slide-up',
         transitionHide: 'slide-down',
         ok: { color: 'positive' }
+      }).onOk(() => {
+        router.push({ name: AUTH_ROUTE_NAME })
       })
     }
   } catch (err) {
