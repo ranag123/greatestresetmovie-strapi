@@ -24,6 +24,7 @@ module.exports = configure(function (ctx) {
       // ONLY ADD ENV VARS THAT NEED TO BE INJECTED INTO THE QUASAR APP HERE!
 
       MAILCHIMP_LIST_ID: process.env.MAILCHIMP_LIST_ID,
+      STRAPI_API_BASE_URL: process.env.STRAPI_API_BASE_URL,
 
       STRIPE_PUBLIC_KEY: process.env.STRIPE_PUBLIC_KEY,
 
