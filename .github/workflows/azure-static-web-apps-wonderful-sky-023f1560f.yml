@@ -37,6 +37,7 @@ jobs:
           #### Everything in this section will be available in the browser.
           #### https://docs.microsoft.com/en-us/azure/developer/javascript/how-to/create-static-web-app#configure-client-environment-variables
           MAILCHIMP_LIST_ID: "6d6a7cc687"
+          STRAPI_API_BASE_URL: "https://greatestreset-strapi.azurewebsites.net/api"
           # zype doesn't support using the stripe test key, so we always use the live key.
           STRIPE_PUBLIC_KEY: "pk_live_51HFPhFGzQSpdjABYMsGrZCIMxs70FBdqPJS4bpW1WIxloSXs04HrboRgyeZXbLzskBpJXUPZ6YNw3FZHT5CAJnZY00NOrRndi9"
           ZYPE_API_BASE_URL: "/api/media"
