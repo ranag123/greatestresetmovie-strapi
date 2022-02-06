@@ -1,15 +1,4 @@
 {
   "$schema": "http://json.schemastore.org/proxies",
-  "proxies": {
-    "proxyStrapiEmailConfirmApi": {
-      "debug": false,
-      "matchCondition": {
-        "methods": [
-          "GET"
-        ],
-        "route": "/api/auth/email-confirmation"
-      },
-      "backendUri": "%STRAPI_API_BASE_URL%/api/auth/email-confirmation"
-    }
-  }
+  "proxies": {}
 }

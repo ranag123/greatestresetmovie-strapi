@@ -129,6 +129,16 @@ export const useUserStore = defineStore('user', {
         }
       })
     },
+    confirmEmail (confirmation) {
+      // NOTE: using fetch to avoid following the redirect that is returned from the api call.
+      // NOTE: Handling the email confirmation on this site requires manually setting the URL in the email
+      //  template instead of using the URL var since it seems Strapi does not expect a custom page to be used
+      //  on a different URL from the admin for email-confirmation.
+      return fetch(`${process.env.STRAPI_API_BASE_URL}/auth/email-confirmation?confirmation=${confirmation}`,{
+        method: 'GET',
+        redirect: 'manual'
+      })
+    },
     signIn (identifier, password) {
       // https://github.com/axios/axios
       return apiEndpoint.post('/auth/local', {
