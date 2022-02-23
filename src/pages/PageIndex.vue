@@ -417,7 +417,8 @@ const bios = [
   },
   {
     name: 'Tony Roman',
-    bio: '<p>Restaurant owner of Basilico&apos;s Restaurant in Huntington Beach, CA, not only decided to never shut down, but doesn&apos;t allow people with masks to enter the premises.</p>',
+    // bio: '<p>Restaurant owner of Basilico&apos;s Restaurant in Huntington Beach, CA, not only decided to never shut down, but doesn&apos;t allow people with masks to enter the premises.</p>',
+    bio: '<p>Owner of California restaurant &lsquo;Basilico&apos;s Pasta e Vino&rsquo;, pledged his business as a &lsquo;Constitutional Battleground&rsquo; on day one of the lockdowns, taking the fight to the enemy, with an uncompromising, take no prisoners stand in defense of American Liberty and Freedom. His business operated openly and fully, remaining &lsquo;vintage America&rsquo; throughout. His aggressive fighting style included banning masks from the property, and taunting the government with his messages of defiance, posting them on billboards and murals and even notifying customers they had to &lsquo;show proof of being un-vaccinated&rsquo; before entry.</p>',
     bg: 'roman.jpg'
   },
   {

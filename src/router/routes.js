@@ -67,7 +67,12 @@ const routes = [
         meta: { isPublic: true },
         component: () => import('pages/auth/PageRegister.vue')
       },
-      // NOTE: the confirm account email url is a direct api call that is proxied in api/proxies.json
+      {
+        path: 'email-confirmation',
+        name: 'AuthConfirmEmail',
+        meta: { isPublic: true },
+        component: () => import('pages/auth/PageConfirmEmail.vue')
+      },
       {
         path: 'reset-password',
         name: 'AuthResetPassword',

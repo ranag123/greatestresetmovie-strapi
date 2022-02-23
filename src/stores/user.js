@@ -34,7 +34,7 @@ export const useUserStore = defineStore('user', {
 
   actions: {
     me () {
-      return apiEndpoint.get('/api/me').then(({ data }) => {
+      return apiEndpoint.get('/users/me').then(({ data }) => {
         if (data) {
           this.authUser = data
 
@@ -46,7 +46,7 @@ export const useUserStore = defineStore('user', {
     },
     register (fullName, email, password) {
       // https://github.com/axios/axios
-      return apiEndpoint.post('/api/auth/register', {
+      return apiEndpoint.post('/auth/local/register', {
         username: email, // this has to be unique, so use email
         email,
         password,
@@ -74,7 +74,7 @@ export const useUserStore = defineStore('user', {
     },
     recoverPassword (email) {
       // https://github.com/axios/axios
-      return apiEndpoint.post('/api/auth/forgot-password', {
+      return apiEndpoint.post('/auth/forgot-password', {
         email,
       }, {
         validateStatus: function (status) {
@@ -93,7 +93,7 @@ export const useUserStore = defineStore('user', {
     resetPassword (code, password, passwordConfirmation) {
       // This is step 2 of the recover password process after the user received an email with a link to reset.
       // https://github.com/axios/axios
-      return apiEndpoint.post('/api/auth/reset-password', {
+      return apiEndpoint.post('/auth/reset-password', {
         code,
         password,
         passwordConfirmation
@@ -113,7 +113,7 @@ export const useUserStore = defineStore('user', {
     },
     sendEmailConfirmation (email) {
       // https://github.com/axios/axios
-      return apiEndpoint.post('/api/auth/send-email-confirmation', {
+      return apiEndpoint.post('/auth/send-email-confirmation', {
         email,
       }, {
         validateStatus: function (status) {
@@ -129,9 +129,19 @@ export const useUserStore = defineStore('user', {
         }
       })
     },
+    confirmEmail (confirmation) {
+      // NOTE: using fetch to avoid following the redirect that is returned from the api call.
+      // NOTE: Handling the email confirmation on this site requires manually setting the URL in the email
+      //  template instead of using the URL var since it seems Strapi does not expect a custom page to be used
+      //  on a different URL from the admin for email-confirmation.
+      return fetch(`${process.env.STRAPI_API_BASE_URL}/auth/email-confirmation?confirmation=${confirmation}`,{
+        method: 'GET',
+        redirect: 'manual'
+      })
+    },
     signIn (identifier, password) {
       // https://github.com/axios/axios
-      return apiEndpoint.post('/api/auth/signin', {
+      return apiEndpoint.post('/auth/local', {
         identifier,
         password
       }, {
