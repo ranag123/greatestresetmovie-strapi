@@ -143,9 +143,13 @@ async function register () {
 
       await reset()
 
+      const message = userStore?.authUser?.confirmed
+        ? 'Successfully registered! Please sign in.'
+        : 'Please check your email to confirm your account.'
+
       $q.dialog({
         title: 'Registration successful!',
-        message: 'Please check your email to confirm your account.',
+        message,
         transitionShow: 'slide-up',
         transitionHide: 'slide-down',
         ok: { color: 'positive' }

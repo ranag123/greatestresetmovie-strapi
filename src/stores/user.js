@@ -40,7 +40,9 @@ export const useUserStore = defineStore('user', {
 
           // save the info locally but expire it when the zype token will expire.
           // the zype expires_in is seconds, so convert to minutes
-          this.persistAuthState(this.zype.expires_in / 60)
+          if (this.zype?.expires_in) {
+            this.persistAuthState(this.zype.expires_in / 60)
+          }
         }
       })
     },
@@ -66,7 +68,9 @@ export const useUserStore = defineStore('user', {
           this.jwt = data?.jwt
           // save the info locally but expire it when the zype token will expire.
           // the zype expires_in is seconds, so convert to minutes
-          this.persistAuthState(this.zype.expires_in / 60)
+          if (this.zype?.expires_in) {
+            this.persistAuthState(this.zype.expires_in / 60)
+          }
         } else {
           throw new Error() // let the UI set the message
         }
@@ -134,7 +138,7 @@ export const useUserStore = defineStore('user', {
       // NOTE: Handling the email confirmation on this site requires manually setting the URL in the email
       //  template instead of using the URL var since it seems Strapi does not expect a custom page to be used
       //  on a different URL from the admin for email-confirmation.
-      return fetch(`${process.env.STRAPI_API_BASE_URL}/auth/email-confirmation?confirmation=${confirmation}`,{
+      return fetch(`${process.env.STRAPI_API_BASE_URL}/auth/email-confirmation?confirmation=${confirmation}`, {
         method: 'GET',
         redirect: 'manual'
       })
@@ -159,7 +163,9 @@ export const useUserStore = defineStore('user', {
           this.jwt = data?.jwt
           // save the info locally but expire it when the zype token will expire.
           // the zype expires_in is seconds, so convert to minutes
-          this.persistAuthState(this.zype.expires_in / 60)
+          if (this.zype?.expires_in) {
+            this.persistAuthState(this.zype.expires_in / 60)
+          }
         } else {
           throw new Error() // let the UI set the message
         }
