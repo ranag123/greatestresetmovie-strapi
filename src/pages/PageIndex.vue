@@ -375,11 +375,11 @@ const bios = [
   //   bio: '<p>Douglas Gabriel, PHD is a retired Superintendent of Schools and Professor of Education who has worked with schools and organizations throughout the world. He has authored eleven books ranging from teacher training manuals to philosophical/spiritual works on the nature of the divine feminine. He was a Waldorf class teacher and administrator at the Detroit Waldorf School and taught courses at Mercy College, the University of Detroit, and Wayne State University for decades.</p>',
   //   bg: 'gabriel.jpg'
   // },
-  {
-    name: 'Michael McKibben',
-    bio: '<p>Michael McKibben&apos;s career spans two phases: international christian music ministry, and technology innovation. In 2006, he was awarded U.S. patent no. 7,139,761 for what is now called &ldquo;social networking.&rdquo; he credits his earlier ministry experience with the inspiration to conceive perhaps one of the most important inventions since Thomas Edison&apos;s light bulb.</p>',
-    bg: 'mckibben.jpg'
-  },
+  // {
+  //   name: 'Michael McKibben',
+  //   bio: '<p>Michael McKibben&apos;s career spans two phases: international christian music ministry, and technology innovation. In 2006, he was awarded U.S. patent no. 7,139,761 for what is now called &ldquo;social networking.&rdquo; he credits his earlier ministry experience with the inspiration to conceive perhaps one of the most important inventions since Thomas Edison&apos;s light bulb.</p>',
+  //   bg: 'mckibben.jpg'
+  // },
   {
     name: 'Whitney Webb',
     bio: '<p>Whitney Webb has been a professional writer, researcher and journalist since 2016. She has written for several websites and, from 2017 to 2020, was a staff writer and senior investigative reporter for Mint Press News. She currently writes for the Last American Vagabond.</p>',
