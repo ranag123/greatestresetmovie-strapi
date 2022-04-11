@@ -18,7 +18,11 @@
         </div>
       </div>
 
-      <div class="pt-10">
+      <div class="grid place-items-center">
+        <btn-donate/>
+      </div>
+
+      <div class="pt-20 sm:pt-32">
         <h2 class="text-center mb-10">Thank you for watching and be sure to share with your friends and neighbors!</h2>
         <social-buttons/>
       </div>
@@ -35,6 +39,7 @@ import { onMounted, ref } from 'vue'
 import { onBeforeRouteLeave } from 'vue-router'
 import { delay } from 'lodash'
 import { set } from '@vueuse/core'
+import BtnDonate from 'components/BtnDonate'
 
 const userStore = useUserStore()
 
@@ -62,13 +67,15 @@ useMeta(() => {
   const meta = {}
 
   // This loads the requested preview video.
-  meta.script = {
-    previewVideo: {
-      src: $const.VIDEO_SRC_TEMPLATE({
-        vid: $const.ZYPE_PREVIEW_VIDEO_ID,
-        authParam: 'access_token',
-        auth: userStore.authUser.zypeOAuth.access_token
-      })
+  if (userStore?.authUser?.zypeOAuth?.access_token) {
+    meta.script = {
+      previewVideo: {
+        src: $const.VIDEO_SRC_TEMPLATE({
+          vid: $const.ZYPE_PREVIEW_VIDEO_ID,
+          authParam: 'access_token',
+          auth: userStore.authUser.zypeOAuth.access_token
+        })
+      }
     }
   }
 

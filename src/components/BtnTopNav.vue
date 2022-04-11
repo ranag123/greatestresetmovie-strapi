@@ -1,8 +1,9 @@
 <template>
   <q-btn
     stretch unelevated no-caps no-wrap
-    class="BtnTopNav px-6"
+    class="BtnTopNav px-4 sm:px-6"
     :style="activeStyles"
+    :ripple="false"
   >
     <slot/>
   </q-btn>
